@@ -37,13 +37,13 @@ jobs:
           node-version: 17.7
 
       - name: Run script
-        run: node .github/workflows/scripts/notes.js '${{ inputs.datetime }}' '${{ inputs.tags }}' '${{ inputs.lang }}' '${{ inputs.location }}' '${{ inputs.content }}'
+        run: node .github/workflows/scripts/notes.js "${{ inputs.datetime }}" "${{ inputs.tags }}" "${{ inputs.lang }}" "${{ inputs.location }}" "${{ inputs.content }}"
 
       - name: Push changes
         run: |
           git config user.email 'bot@drewsiph.dev'
           git config user.name 'drewsiph [bot]'
           git add .
-          git commit -m "Add note via Integration || echo "Nothing to commit"
+          git commit -m "Add note via Integration" || echo "Nothing to commit"
           git fetch origin main
           git push origin HEAD:main
