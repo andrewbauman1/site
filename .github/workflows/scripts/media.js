@@ -63,7 +63,7 @@ caption: |
 } else {
   // Image-specific metadata
   frontmatter += `
-image: https://photos.drewsiph.dev/cdn-cgi/imagedelivery/-wp_VgtWlgmh1JURQ8t1mg/${json.id}/public
+image: https://imagedelivery.net/LQ_Z8HgbrQpAu3k88KR0Rg/${json.id}/public
 caption: |
   ${json.meta.caption || ''}
 alt: |
@@ -71,7 +71,7 @@ alt: |
 
   // Markdown representation of the image
   markdown = `
-![${json.meta.alt}](https://photos.drewsiph.dev/cdn-cgi/imagedelivery/-wp_VgtWlgmh1JURQ8t1mg/${json.id}/public)
+![${json.meta.alt}](https://imagedelivery.net/LQ_Z8HgbrQpAu3k88KR0Rg/${json.id}/public)
 
 ${json.meta.caption}`
 }
