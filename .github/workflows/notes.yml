@@ -40,6 +40,8 @@ jobs:
         run: node .github/workflows/scripts/notes.js "${{ inputs.datetime }}" "${{ inputs.tags }}" "${{ inputs.lang }}" "${{ inputs.location }}" "${{ inputs.content }}"
 
       - name: Push changes
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git config user.email 'bot@drewsiph.dev'
           git config user.name 'drewsiph [bot]'
