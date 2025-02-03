@@ -1,0 +1,91 @@
+---
+title: Andrew Bauman
+layout: default
+root: true
+---
+
+<p>
+  A project manager and technologist with a passion for creative problem-solving and turning ideas into action.
+</p>
+<p>
+  Based in Boston, Massachusetts<span class="time" data-timestamp-text=", (where it's currently {time})"></span>, with roots in New York, Madrid, and Philadelphia.
+</p>
+
+<p>
+  As of {{ site.recent_date | date: "%b %e" }}, exploring new projects, experimenting with innovative solutions, and finding ways to make things better—both at work and in life.
+</p>
+
+<nav aria-label="Profession">
+  <a href="{% link _pages/testimonials.md %}">Testimonials</a><hr class="inline-hr">
+  <a href="https://www.linkedin.com/in/drewbauman/ rel="me">LinkedIn</a>
+</nav>
+
+<br>
+
+<nav aria-label="Additional content">
+  <a href="{% link _pages/blogroll.md %}">Following</a><hr class="inline-hr">
+  <a href="#">Projects (Coming Soon)</a>
+</nav>
+<nav aria-label="Social">
+  <a href="https://github.com/andrewbauman1" rel="me">GitHub</a><hr class="inline-hr">
+  <a href="https://bsky.app/profile/drewsiph.dev" rel="me">BlueSky</a><hr class="inline-hr">
+  <a href="https://www.pinterest.com/drewsiph_/" rel="me">Pinterest</a>
+</nav>
+
+<div class="lang">
+  <a href="/" srclang="en-US" aria-current="true">English</a><a href="/es-ES/" srclang="es-ES">Español</a>
+</div>
+
+<hr class="hr">
+
+<h2 class="normal-heading">Stories</h2> <a href="/stories.xml" class="styled-link">RSS</a> <a href="https://github.com/dddddddddzzzz/OpenStories" class="styled-link">What are these?</a>
+
+{% include stories.html lang="en" %}
+
+<hr class="hr">
+
+<h2 class="normal-heading">Photos</h2><a href="/photos" class="styled-link">All photos</a> <a href="/photos.xml" class="styled-link">RSS</a>
+<div class="photos">
+{% assign photos = site.data.photos | reverse | slice: 0, 10 %}
+{% for photo in photos %}
+  {% capture image_url %}{% for url in photo.variants %}{% if url contains "/thumbnail" %}{{ url }}{% endif %}{% endfor %}{% endcapture %}
+  <a href="/photos#P{{ photo.id }}" class="image-link">
+    <img src="{{ image_url }}" height="200" alt="{{ photo.meta.alt }}" loading="lazy" style="aspect-ratio: {{ photo.meta.ratio }};">
+  </a>
+{% endfor %}
+</div>
+
+<!--
+<h2 class="normal-heading">Film photos</h2><a href="/film" class="styled-link">All film photos</a> <a href="/film.xml" class="styled-link">RSS</a>
+<div class="photos">
+{% assign photos = site.data.film | reverse | slice: 0, 10 %}
+{% for photo in photos %}
+  {% capture image_url %}{% for url in photo.variants %}{% if url contains "/thumbnail" %}{{ url }}{% endif %}{% endfor %}{% endcapture %}
+  <a href="/film#P{{ photo.id}}" class="image-link">
+    <img src="{{ image_url }}" height="200" alt="{{ photo.meta.alt }}" loading="lazy" style="aspect-ratio: {{ photo.meta.ratio }};">
+  </a>
+{% endfor %}
+</div> -->
+
+<hr class="hr">
+
+{% assign note = site.notes | last %}
+<h2 class="normal-heading">Notes</h2><a href="/notes" class="styled-link">Recent notes</a> <a href="/notes.xml" class="styled-link">RSS</a>
+<div class="note">
+  <time class="general-actions monospace">
+    {{ note.date | date: "%b %e, %Y" }}
+  </time>
+  <div class="note-content" lang="{{ note.lang }}">{{ note.content | markdownify }}</div>
+  <div class="note-tags">{% for tag in note.tags %}<span class="note-tag" data-tag="{{ tag }}">{{ tag }}</span>{% endfor %}</div>
+</div>
+
+<hr class="hr">
+
+<h2 class="normal-heading">Recent posts</h2><a href="/feed.xml" class="styled-link">RSS</a>
+<ul aria-label="posts" class="terminal">
+{% assign posts = site.posts | where: "feature", 1 %}
+{% for post in posts %}
+  <li class="line"><a href="{{ post.url }}">{{ post.title }}</a><br>
+    <time class="monospace" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %e, %Y" }}</time></li>
+{% endfor %}
+</ul>

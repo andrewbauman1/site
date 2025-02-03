@@ -1,0 +1,109 @@
+---
+title: Andrew Bauman
+permalink: /es-ES/
+layout: default
+root: true
+---
+
+{% assign hour = site.time | date: "%H" | plus: 0 %}
+{% assign minutes = site.time | date: "%M" %}
+{% if hour == 1 %}
+  {% assign prefix = "es la" %}
+{% else %}
+  {% assign prefix = "son las" %}
+{% endif %}
+
+{% assign day = site.recent_date | date: "%-d" %}
+{% assign month_number = site.recent_date | date: "%m" %}
+
+{% case month_number %}
+  {% when "01" %} {% assign month = "enero" %}
+  {% when "02" %} {% assign month = "febrero" %}
+  {% when "03" %} {% assign month = "marzo" %}
+  {% when "04" %} {% assign month = "abril" %}
+  {% when "05" %} {% assign month = "mayo" %}
+  {% when "06" %} {% assign month = "junio" %}
+  {% when "07" %} {% assign month = "julio" %}
+  {% when "08" %} {% assign month = "agosto" %}
+  {% when "09" %} {% assign month = "septiembre" %}
+  {% when "10" %} {% assign month = "octubre" %}
+  {% when "11" %} {% assign month = "noviembre" %}
+  {% when "12" %} {% assign month = "diciembre" %}
+{% endcase %}
+
+<p>
+  Gestor de proyectos y tecnólogo con pasión por la resolución creativa de problemas y transformar ideas en acción.
+</p>
+<p>
+  Radicado en Boston, Massachusetts<span class="time" data-timestamp-text=", (donde ahora {{ prefix }} {{ hour }}:{{ minutes }})"></span>, con raíces en Nueva York, Madrid y Filadelfia.
+</p>
+<p>
+  A partir del {{ day }} de {{ month }}, explorando nuevos proyectos, experimentando con soluciones innovadoras y buscando formas de mejorar las cosas, tanto en el trabajo como en la vida.
+</p>
+
+<nav aria-label="Profesión">
+  <a href="{% link _pages/testimonials.md %}">Testimonios</a><hr class="inline-hr">
+  <a href="https://www.linkedin.com/in/drewbauman/ rel="me">LinkedIn</a>
+</nav>
+
+<br>
+
+<nav aria-label="Contenido adicional">
+  <a href="{% link _pages/blogroll.md %}">Sigiendo</a><hr class="inline-hr">
+  <a href="#">Proyectos (Próximamente)</a>
+</nav>
+<nav aria-label="Social">
+  <a href="https://github.com/andrewbauman1" rel="me">GitHub</a><hr class="inline-hr">
+  <a href="https://bsky.app/profile/drewsiph.dev" rel="me">BlueSky</a><hr class="inline-hr">
+  <a href="https://www.pinterest.com/drewsiph_/" rel="me">Pinterest</a>
+</nav>
+
+<div class="lang">
+  <a href="/" srclang="en-US">English</a><a href="/es-ES/" srclang="es-ES" aria-current="true">Español</a>
+</div>
+
+<hr class="hr">
+
+<h2 class="normal-heading">Historias</h2> <a href="/stories.xml" class="styled-link">RSS</a><a href="https://github.com/dddddddddzzzz/OpenStories" class="styled-link">¿Qué son?</a>
+
+<div class="stories">
+  {% include stories.html lang="es-ES" %}
+</div>
+
+<hr class="hr">
+
+<h2 class="normal-heading">Fotos</h2><a href="/photos" class="styled-link">Todas las fotos</a> <a href="/photos.xml" class="styled-link">RSS</a>
+<div class="photos">
+{% assign photos = site.data.photos | reverse | slice: 0, 10 %}
+{% for photo in photos %}
+  {% capture image_url %}{% for url in photo.variants %}{% if url contains "/thumbnail" %}{{ url }}{% endif %}{% endfor %}{% endcapture %}
+  <a href="/photos#P{{ photo.id }}" class="image-link">
+    <img src="{{ image_url }}" height="200" alt="{{ photo.meta.alt }}" loading="lazy" style="aspect-ratio: {{ photo.meta.ratio }};">
+  </a>
+{% endfor %}
+</div>
+
+<hr class="hr">
+
+{% assign note = site.notes | last %}
+<h2 class="normal-heading">Notas</h2><a href="/notes" class="styled-link">Ver los recientes</a> <a href="/notes.xml" class="styled-link">RSS</a>
+<div class="note">
+  <time class="general-actions monospace" datetime="{{ note.date | date_to_xmlschema }}">
+    {{ note.date | date: "%Y/%m/%d" }}
+  </time>
+  <div class="note-content" lang="{{ note.lang }}">{{ note.content | markdownify }}</div>
+  <div class="note-tags">{% for tag in note.tags %}<span class="note-tag" data-tag="{{ tag }}">{{ tag }}</span>{% endfor %}</div>
+</div>
+
+<hr class="hr">
+
+<div>
+<h2 class="normal-heading">Publicaciones</h2><a href="/feed.xml" class="styled-link">RSS</a>
+<ul aria-label="posts" class="terminal">
+{% assign posts = site.posts | where: "feature", 1 %}
+{% for post in posts %}
+  <li class="line"><a href="{{ post.url }}">{{ post.title }}</a><br>
+    <time class="monospace" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y/%m/%d" }}</time></li>
+{% endfor %}
+</ul>
+</div>

@@ -1,0 +1,37 @@
+---
+layout: default
+type: photos
+has_open_heart: false
+title: Photos
+---
+
+<div class="photos-wrapper" id="photos">
+{% assign photos = site.data.photos | reverse %}
+{% for photo in photos %}
+<figure id="P{{ photo.id }}" class="figure-{% if photo.meta.ratio > 1 %}landscape{% else %}portrait{% endif %}">
+  {% capture image_url %}{% for url in photo.variants %}{% if url contains "/public" %}{{ url }}{% endif %}{% endfor %}{% endcapture %}
+  <a href="{{ image_url }}" class="image-link">
+    <img
+      src="{{ image_url }}"
+      height="2400"
+      style="aspect-ratio: {{ photo.meta.ratio }}"
+      alt="{{ photo.meta.alt }}"
+      title="{{ photo.meta.alt }}"
+      class="{% if photo.meta.ratio > 1 %}landscape{% else %}portrait{% endif %}"
+      loading="lazy">
+  </a>
+  <figcaption>
+    <div class="desc photo-metadata">
+      <div>{{ photo.uploaded | date: "%Y/%m/%d (%a)" }}</div>
+      {% if photo.meta.location  %}<div>@ {{ photo.meta.location }}</div>{% endif %}
+      <!-- Temporarily Removing Open-Heart
+      <open-heart class="text-open-heart" href="https://likes.drewsiph.dev/?id=photo-P{{ photo.id }}" emoji="❤️" aria-labelledby="like-prompt">
+        <span class="on">Liked ♥︎.</span><span class="off">Like?</span>
+      </open-heart> -->
+    </div>
+    {{ photo.meta.caption | markdownify }}
+  </figcaption>
+</figure>
+{% endfor %}
+
+</div>
