@@ -1,0 +1,49 @@
+name: "Media upload 2.0"
+
+on:
+  workflow_dispatch:
+    inputs:
+      filepath:
+        description: "JSON file path for the data"
+        type: string
+        required: true
+      filedata:
+        description: "Stringify JSON data of the media"
+        type: string
+        required: true
+
+concurrency: ci-${{ github.action }}
+
+permissions:
+  contents: write
+
+jobs:
+  process:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v3
+        with:
+          ref: 'main'
+
+      - name: 📦 Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      - name: 📌 Install dependencies
+        run: npm ci
+
+      - name: 🏃 Run media processing script
+        run: node .github/workflows/scripts/media.js "${{ github.event.inputs.filepath }}" '${{ github.event.inputs.filedata }}'
+
+      - name: 🚀 Commit and push changes
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config user.email 'bot@drewsiph.dev'
+          git config user.name 'drewsiph [bot]'
+          git add .
+          git commit -m "Add media via Integration" || echo "Nothing to commit"
+          git push origin HEAD:main
