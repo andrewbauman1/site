@@ -33,7 +33,7 @@ jobs:
           node-version: 20
 
       - name: 📌 Install dependencies
-        run: npm ci
+        run: npm install
 
       - name: 🏃 Run media processing script
         run: node .github/workflows/scripts/media.js "${{ github.event.inputs.filepath }}" '${{ github.event.inputs.filedata }}'

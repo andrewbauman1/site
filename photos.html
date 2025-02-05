@@ -8,7 +8,8 @@ title: Photos
 <div class="photos-wrapper" id="photos">
 {% assign photos = site.data.photos | reverse %}
 {% for photo in photos %}
-<figure id="P{{ photo.id }}" class="figure-{% if photo.meta.ratio > 1 %}landscape{% else %}portrait{% endif %}">
+{% assign ratio_value = photo.meta.ratio | plus: 0 %}
+<figure id="P{{ photo.id }}" class="figure-{% if ratio_value > 1 %}landscape{% else %}portrait{% endif %}">
   {% capture image_url %}{% for url in photo.variants %}{% if url contains "/public" %}{{ url }}{% endif %}{% endfor %}{% endcapture %}
   <a href="{{ image_url }}" class="image-link">
     <img
@@ -17,7 +18,7 @@ title: Photos
       style="aspect-ratio: {{ photo.meta.ratio }}"
       alt="{{ photo.meta.alt }}"
       title="{{ photo.meta.alt }}"
-      class="{% if photo.meta.ratio > 1 %}landscape{% else %}portrait{% endif %}"
+      class="{% if ratio_value > 1 %}landscape{% else %}portrait{% endif %}"
       loading="lazy">
   </a>
   <figcaption>
