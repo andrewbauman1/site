@@ -12,7 +12,15 @@ const fileExists = fs.existsSync(filePath)
 const photos = fileExists ? JSON.parse(fs.readFileSync(filePath).toString()) : []
 
 // Parse the input JSON string
-const json = JSON.parse(jsonString)
+try {
+  console.log("Raw JSON Input:", jsonString);  // Debugging: See what's actually received
+  const json = JSON.parse(jsonString);
+  console.log("Parsed JSON:", json);
+} catch (error) {
+  console.error("❌ JSON Parsing Error:", error.message);
+  console.error("Received data:", jsonString);
+  process.exit(1); // Exit with an error
+}
 
 // Cloudflare Stream uses 'uid' instead of 'id', so ensure 'id' is set
 if (!json['id']) json.id = json.uid
