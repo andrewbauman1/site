@@ -1,6 +1,6 @@
 ---
-permalink: /stories-hobby.json
-type: "Hobby"
+permalink: /stories-travel.json
+type: "ATH"
 ---
 {% assign stories = site.data.stories | where_exp: "story", "story.meta.tags contains page.type" | where_exp: "story", "story.meta.tags contains 'Highlight'" %}
 {
@@ -8,7 +8,7 @@ type: "Hobby"
   "title": "@drewsiph's stories for {{ page.type }}",
   "icon": "https://github.com/drewsiph.png",
   "home_page_url": "https://drewsiph.dev/",
-  "feed_url": "https://drewsiph.dev/stories-hobby.json",
+  "feed_url": "https://drewsiph.dev/stories-travel.json",
   "description": "Stories about {{ page.type }}.",
   "_open_stories": {
     "version": "0.0.9"
