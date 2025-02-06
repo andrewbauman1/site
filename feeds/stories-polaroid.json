@@ -21,7 +21,7 @@ type: "Polaroid"
       "content_html": "{% if story.playback %}<video src='${story.meta.url}' controls></video>{{ story.meta.title }}{% else %}<img src='https://imagedelivery.net/LQ_Z8HgbrQpAu3k88KR0Rg/{{ story.id }}/public' alt='{{ story.meta.alt }}'>{% endif %}",
       "title": "{{ story.uploaded | date: "%Y/%m/%d" }}",
       "summary": "{% if story.meta.caption == "" %}N/A{% else %}{{ story.meta.caption }}{% endif %} ({{ story.meta.alt }})",
-      "authors": [{"name": "Mu-An Chiou", "url": "https://drewsiph.dev"}],
+      "authors": [{"name": "Andrew Bauman", "url": "https://drewsiph.dev"}],
       "url": "{{ site.url }}/stories/{{ story.id }}",
       "_open_stories": {
         "mime_type": "{% if story.meta.filetype %}{{ story.meta.filetype }}{% else %}image/jpeg{% endif %}",

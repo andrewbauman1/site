@@ -1,4 +1,4 @@
-{% assign categories = "Polaroid,Self,Travel,Plants,Friends,Hobby" | split: "," %}
+{% assign categories = "Polaroid,Self,Travel,Plants,Friends,Hobby,Life" | split: "," %}
 {% assign stories = site.data.stories | sort: "uploaded" | reverse %}
 {% assign new_categories_arr = "" | split: "" | compact %}
 {% for story in stories %}
@@ -11,9 +11,18 @@
 {% assign new_categories_arr = new_categories_arr | uniq %}
 
 <div class="stories">
+  {%- assign one_day_ago = "now" | date: "%s" | minus: 86400 -%}
+  {%- assign count_24h = 0 -%}
+
+  {%- for story in site.data.stories -%}
+    {%- assign story_time = story.uploaded | date: "%s" | plus: 0 -%}
+    {%- if story_time >= one_day_ago -%}
+      {%- assign count_24h = count_24h | plus: 1 -%}
+    {%- endif -%}
+  {%- endfor -%}
   <open-stories src="/stories.json" show-metadata><span>
     {% if include.lang == "en" %}24h{% else %}{{ site.i18n[include.lang]["24h"] }}{% endif %}
-  </span></open-stories>
+  </span><span class="count">&times; {{ count_24h }}</open-stories>
 
   {% for type in new_categories_arr %}
     {% unless categories contains type %}{% continue %}{% endunless %}
