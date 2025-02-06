@@ -133,13 +133,29 @@
       "alt": "A sunset over the Hudson River in Poughkeepsie, NY",
       "caption": "Missing Marist Sunsets [Poughkeepsie, NY]",
       "tags": [
-        "Life", "Highlight"
+        "Life",
+        "Highlight"
       ]
     },
     "requireSignedURLs": false,
     "variants": [
       "https://imagedelivery.net/LQ_Z8HgbrQpAu3k88KR0Rg/4a97ee69-f5d4-4e40-e4c5-05094d5d8300/public",
       "https://imagedelivery.net/LQ_Z8HgbrQpAu3k88KR0Rg/4a97ee69-f5d4-4e40-e4c5-05094d5d8300/thumbnail"
+    ]
+  },
+  {
+    "uploaded": "2025-02-06T02:34:40.847Z",
+    "id": "89d2dcc5-5d45-4c0a-8ae6-ce497219a800",
+    "filename": "Image.jpeg",
+    "meta": {
+      "alt": "A COVID-19 Poster in Greek; Taken in Athens, Greece",
+      "caption": "",
+      "tags": ""
+    },
+    "requireSignedURLs": false,
+    "variants": [
+      "https://imagedelivery.net/LQ_Z8HgbrQpAu3k88KR0Rg/89d2dcc5-5d45-4c0a-8ae6-ce497219a800/thumbnail",
+      "https://imagedelivery.net/LQ_Z8HgbrQpAu3k88KR0Rg/89d2dcc5-5d45-4c0a-8ae6-ce497219a800/public"
     ]
   }
 ]
