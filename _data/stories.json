@@ -289,5 +289,24 @@
       "https://imagedelivery.net/LQ_Z8HgbrQpAu3k88KR0Rg/401ab503-ae90-42c3-27b6-0ded376def00/public",
       "https://imagedelivery.net/LQ_Z8HgbrQpAu3k88KR0Rg/401ab503-ae90-42c3-27b6-0ded376def00/thumbnail"
     ]
+  },
+  {
+    "uploaded": "2025-02-07T01:57:49.388Z",
+    "id": "722a4cd7-b51d-4df3-814f-bf72632fe800",
+    "filename": "drewsiph__ATH_2687181759166929953_179923079_2_5_2025.jpeg",
+    "meta": {
+      "alt": "A collage of street/graffiti photos",
+      "caption": "[Athens, Greece]",
+      "tags": [
+        "Travel",
+        "Highlight",
+        "ATH"
+      ]
+    },
+    "requireSignedURLs": false,
+    "variants": [
+      "https://imagedelivery.net/LQ_Z8HgbrQpAu3k88KR0Rg/722a4cd7-b51d-4df3-814f-bf72632fe800/thumbnail",
+      "https://imagedelivery.net/LQ_Z8HgbrQpAu3k88KR0Rg/722a4cd7-b51d-4df3-814f-bf72632fe800/public"
+    ]
   }
 ]
