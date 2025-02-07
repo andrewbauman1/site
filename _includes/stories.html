@@ -24,12 +24,30 @@
     {% if include.lang == "en" %}24h{% else %}{{ site.i18n[include.lang]["24h"] }}{% endif %}
   </span><span class="count">&times; {{ count_24h }}</open-stories>
 
+    {% assign excluded_categories = "ATH,LA,PBI,PHL,BOS" | split: "," %}
+
+  <!-- Regular categories (descending order) -->
   {% for type in new_categories_arr %}
+    {% if excluded_categories contains type %}{% continue %}{% endif %}
     {% unless categories contains type %}{% continue %}{% endunless %}
     {% assign c = site.data.stories | where_exp: "s", "s.meta.tags contains type" | where_exp: "s", "s.meta.tags contains 'Highlight'" | size %}
     <open-stories src="/stories-{{ type | downcase }}.json" show-metadata is-highlight loading="lazy">
       {% if include.lang == "en" %}{{ type }}{% else %}{{ site.i18n[include.lang][type] }}{% endif %}
       <span class="count">&times; {{c}}</span></open-stories>
+  {% endfor %}
+
+  <div style="display: inline-flex; width: 2px; height: 20px;">
+    <hr style="margin: 0px 0px 0px 0px;">
+  </div>
+    <!-- Special categories (ascending order - adjusted in respective .json feeds) -->
+  {% for type in excluded_categories %}
+    {% assign sorted_stories = site.data.stories | where_exp: "s", "s.meta.tags contains type" | where_exp: "s", "s.meta.tags contains 'Highlight'" | sort: "uploaded" | reverse %}
+    {% assign c = sorted_stories | size %}
+    {% if c > 0 %}
+      <open-stories src="/stories-{{ type | downcase }}.json" show-metadata is-highlight loading="lazy">
+        {% if include.lang == "en" %}{{ type }}{% else %}{{ site.i18n[include.lang][type] }}{% endif %}
+        <span class="count">&times; {{c}}</span></open-stories>
+    {% endif %}
   {% endfor %}
 </div>
 
