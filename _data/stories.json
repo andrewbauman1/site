@@ -1003,5 +1003,23 @@
       "https://imagedelivery.net/LQ_Z8HgbrQpAu3k88KR0Rg/a85ab5e6-e4e0-4043-8f31-cc89e4e01700/thumbnail",
       "https://imagedelivery.net/LQ_Z8HgbrQpAu3k88KR0Rg/a85ab5e6-e4e0-4043-8f31-cc89e4e01700/public"
     ]
+  },
+  {
+    "uploaded": "2025-02-07T04:19:22.633Z",
+    "id": "e269bbe6-66e3-4d17-2cb3-b4ab8e808600",
+    "filename": "drewsiph__LA_3468814348342265546_179923079_2_5_2025.jpeg",
+    "meta": {
+      "alt": "",
+      "caption": "[Venice Canals]",
+      "tags": [
+        "Highlight",
+        "LA"
+      ]
+    },
+    "requireSignedURLs": false,
+    "variants": [
+      "https://imagedelivery.net/LQ_Z8HgbrQpAu3k88KR0Rg/e269bbe6-66e3-4d17-2cb3-b4ab8e808600/public",
+      "https://imagedelivery.net/LQ_Z8HgbrQpAu3k88KR0Rg/e269bbe6-66e3-4d17-2cb3-b4ab8e808600/thumbnail"
+    ]
   }
 ]
