@@ -691,5 +691,23 @@
       "https://imagedelivery.net/LQ_Z8HgbrQpAu3k88KR0Rg/2c55a2d9-6b61-473e-798d-e93885e50600/thumbnail",
       "https://imagedelivery.net/LQ_Z8HgbrQpAu3k88KR0Rg/2c55a2d9-6b61-473e-798d-e93885e50600/public"
     ]
+  },
+  {
+    "uploaded": "2025-02-07T04:06:19.401Z",
+    "id": "43fa304a-fc0e-48f0-03ba-944138ead600",
+    "filename": "drewsiph__LA_3465989754419066091_179923079_2_5_2025.jpeg",
+    "meta": {
+      "alt": "An LA Rooftop",
+      "caption": "",
+      "tags": [
+        "Highlight",
+        "LA"
+      ]
+    },
+    "requireSignedURLs": false,
+    "variants": [
+      "https://imagedelivery.net/LQ_Z8HgbrQpAu3k88KR0Rg/43fa304a-fc0e-48f0-03ba-944138ead600/public",
+      "https://imagedelivery.net/LQ_Z8HgbrQpAu3k88KR0Rg/43fa304a-fc0e-48f0-03ba-944138ead600/thumbnail"
+    ]
   }
 ]
