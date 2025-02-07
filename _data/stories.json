@@ -598,5 +598,23 @@
       "https://imagedelivery.net/LQ_Z8HgbrQpAu3k88KR0Rg/441d7b31-983e-4cd0-0536-85d5934e9b00/public",
       "https://imagedelivery.net/LQ_Z8HgbrQpAu3k88KR0Rg/441d7b31-983e-4cd0-0536-85d5934e9b00/thumbnail"
     ]
+  },
+  {
+    "uploaded": "2025-02-07T03:56:37.247Z",
+    "id": "a0faff33-b712-44f8-55f2-e0b63f36ec00",
+    "filename": "drewsiph__PBI_3088328740266688120_179923079_2_5_2025.jpeg",
+    "meta": {
+      "alt": "Walking on the sidewalk along businesses and palm trees in Delray Beach, Florida",
+      "caption": "",
+      "tags": [
+        "Highlight",
+        "PBI"
+      ]
+    },
+    "requireSignedURLs": false,
+    "variants": [
+      "https://imagedelivery.net/LQ_Z8HgbrQpAu3k88KR0Rg/a0faff33-b712-44f8-55f2-e0b63f36ec00/thumbnail",
+      "https://imagedelivery.net/LQ_Z8HgbrQpAu3k88KR0Rg/a0faff33-b712-44f8-55f2-e0b63f36ec00/public"
+    ]
   }
 ]
