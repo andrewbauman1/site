@@ -1275,5 +1275,23 @@
       "https://imagedelivery.net/LQ_Z8HgbrQpAu3k88KR0Rg/ee9c499e-ba7a-432f-8c48-6fa66471be00/public",
       "https://imagedelivery.net/LQ_Z8HgbrQpAu3k88KR0Rg/ee9c499e-ba7a-432f-8c48-6fa66471be00/thumbnail"
     ]
+  },
+  {
+    "uploaded": "2025-02-09T02:02:52.182Z",
+    "id": "5fe3d414-2cb5-4b83-5c2d-02249a823a00",
+    "filename": "drewsiph__PHL_2696104533047955002_179923079_2_5_2025.jpeg",
+    "meta": {
+      "alt": "Walking along the sidewalk in philly",
+      "caption": "🚶",
+      "tags": [
+        "Travel",
+        "PHL"
+      ]
+    },
+    "requireSignedURLs": false,
+    "variants": [
+      "https://imagedelivery.net/LQ_Z8HgbrQpAu3k88KR0Rg/5fe3d414-2cb5-4b83-5c2d-02249a823a00/thumbnail",
+      "https://imagedelivery.net/LQ_Z8HgbrQpAu3k88KR0Rg/5fe3d414-2cb5-4b83-5c2d-02249a823a00/public"
+    ]
   }
 ]
