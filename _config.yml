@@ -32,9 +32,14 @@ i18n:
     Hobby: Pasatiempos
     accessibility: Accessibilidad
     source: Ver código fuente
+    ATH: ATH
+    LA: LA
+    PBI: PBI
+    PHL: PHL
+    Life: Vida
 include: [".well-known"]
 markdown: kramdown
 commonmark:
   options: ["UNSAFE", "HARDBREAKS"]
   extensions: ["strikethrough", "autolink", "table"]
-recent_date: "2025/2/1"
+recent_date: "2025/2/10"
