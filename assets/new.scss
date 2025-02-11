@@ -2,24 +2,24 @@
 ---
 
 :root {
-  --backgroundColor: #EBE8E2;
-  --textColor: #08272C;
-  --secondaryTextColor: #404040;
+  --backgroundColor: #D1CFCA;
+  --textColor: #121A2B;
+  --secondaryTextColor: #121A2B;
   --mutedTextColor: #08272C;
   --subtleBackgroundColor: #D3D9D4;
   --heartedBackgroundColor: #D3D9D4;
-  --selectionBackgroundColor: #ffc;
-  --linkColor: #31708E;
+  --selectionBackgroundColor: #BEC4D3;
+  --linkColor: #345183;
   --borderColor: #ccc;
   --hrColor: #888;
-  --activeColor: #74d274;
+  --activeColor: #56667B;
   --langBackgroundColor: #eeeeee;
   --langShadowColor: transparent;
   --logoColor: #cccccc;
   --photoBackground: #f4f4f4;
 
-  --sansserif: 'Anuphan', system-ui, sans-serif;
-  --monospace: ui-monospace, "SFMono-Regular", "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  --sansserif: 'outfit', system-ui, sans-serif;
+  --monospace: 'atomic-age-regular', ui-monospace, "SFMono-Regular", "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
 }
 
 @media (prefers-color-scheme: dark) {
