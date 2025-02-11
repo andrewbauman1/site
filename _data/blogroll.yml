@@ -1,10 +1,30 @@
-- title: Placeholder One
-  url: https://drewsiph.dev/#
+- title: Anna's Archive
+  url: https://annas-archive.org/blog/
   lang: en
-  description: This is a description
-  added_at: Sat, 01 Feb 2025 20:00:00 +05:00
-- title: Placeholder Two
-  url: https://drewsiph.dev/#
-  description: This is a description
-  lang: es
-  added_at: Sat, 01 Feb 2025 20:01:00 +05:00
+  description: Writings related to piracy, digital preservation, and more.
+  added_at: Mon, 10 Feb 2025 21:00:00 +05:00
+- title: Sarah M. Hoban
+  url: https://www.sarahmhoban.com/blog
+  lang: en
+  description: Writings related to Product Reviews, Project Management, and Career Advice.
+  added_at: Mon, 10 Feb 2025 21:22:00 +05:00
+- title: Drunken PM (Dave Prior)
+  url: https://drunkenpm.blogspot.com/
+  lang: en
+  description: Writings related to Product Reviews, Project Management, and Career Advice.
+  added_at: Mon, 10 Feb 2025 21:22:00 +05:00
+- title: Michele Badie
+  url: https://skillsrecharged.com/blog/
+  lang: en
+  description: Project Management Resources from the perspective of a Mental Health Advocate.
+  added_at: Mon, 10 Feb 2025 21:22:00 +05:00
+- title: Martin Adams
+  url: https://meda.io/
+  lang: en
+  description: Think pieces on notetaking and idea organization.
+  added_at: Mon, 10 Feb 2025 21:22:00 +05:00
+- title: PMI - Voices on Project Management
+  url: http://www.projectmanagement.com/blog/Voices-on-Project-Management/
+  lang: en
+  description: Multiple Authors Best practices and mentoring to communication, project planning, and risk management.
+  added_at: Mon, 10 Feb 2025 21:22:00 +05:00
