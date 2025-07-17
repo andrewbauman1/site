@@ -1,20 +1,26 @@
 ---
 layout: default
 date: 2025-02-01
-title: Hello, World! / ¡Hola, Mundo!
+title: Booting Up.
 feature: 1
 ---
 
 # Welcome to my little corner of the internet!
 
-I’m thrilled to finally have a space to share my thoughts, projects, and adventures. Whether you’re here to learn more about my work as a project manager and technologist, explore my creative experiments, or just say hi, I’m glad you stopped by.
+Hi! Glad you found your way here.
 
-This blog will be a mix of professional insights, personal musings, and maybe even a recipe or two (because, let’s be honest, cooking is just problem-solving with food). I’m excited to connect with you, so feel free to reach out or leave a comment. Let’s make things better together!
+This is my little corner of the internet where I share what I’m working on, what I’m thinking about, and occasionally what I’m cooking (because kitchen experiments count too).
+
+Sometimes it’s work stuff: project management, tech experiments, ideas in progress. Other times it’s personal. Either way, you’re welcome to hang out, explore, or say hi.
 
 ---
 
 # ¡Bienvenidos a mi rinconcito de internet!
 
-Estoy emocionado de tener por fin un espacio para compartir mis pensamientos, proyectos y aventuras. Ya sea que estés aquí para conocer más sobre mi trabajo como gestor de proyectos y tecnólogo, explorar mis experimentos creativos o simplemente saludar, me alegra que hayas pasado por aquí.
+¡Hola! Qué bien que hayas llegado por aquí.
 
-Este blog será una mezcla de reflexiones profesionales, ideas personales y, tal vez, alguna que otra receta (porque, seamos sinceros, cocinar es resolver problemas con comida). Estoy emocionado por conectar contigo, así que no dudes en escribirme o dejar un comentario. ¡Vamos a mejorar las cosas juntos!
+Este es mi pequeño rincón online donde comparto en lo que ando metido, lo que me ronda la cabeza… y a veces lo que estoy cocinando (porque los experimentos de cocina también cuentan).
+
+A veces va de trabajo: gestión de proyectos, cosas de tecnología, ideas en proceso. Otras veces es más personal. En cualquier caso, estás invitado a quedarte, curiosear o saludar.
+
+PD: Estoy aprendiendo español. No siempre me sale perfecto, pero lo intento. ¡gracias por la paciencia! ¿Francés? Acabo de empezar. Ya veremos si eso llega a alguna parte. 😅

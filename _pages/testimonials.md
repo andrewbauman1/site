@@ -4,9 +4,9 @@ title: Testimonials
 type: static
 ---
 
-## Placeholder One
+## [Someone Great]
 Description
 
-> Testimonial will go here
+> "This is where the kind words will live. Stay tuned."
 
 ---

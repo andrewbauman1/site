@@ -15,6 +15,12 @@
     <!--link rel="icon" href="/assets/fav.png" type="image/png" sizes="96x96"-->
     <link href="https://fonts.googleapis.com/css2?family=Anuphan&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Anta&family=Atomic+Age&family=Permanent+Marker&display=swap" rel="stylesheet">    <link href="/assets/new.css" rel="stylesheet" type="text/css">
+    <script>
+    function cb(response) {
+        document.getElementById('visits').innerText = response.value;
+    }
+    </script>
+    <script async src="https://api.countapi.xyz/hit/mysite.com/visits?callback=cb"></script>
     {% if page.collection == "posts" %}
       <link href="/assets/syntax.css" rel="stylesheet" type="text/css">
     {% endif %}
@@ -164,6 +170,7 @@
         <hr class="inline-hr">
         <a href="https://github.com/andrewbauman1/site">{{ site.i18n[lang].source }}</a>
       </nav>
+      <div id="visits"></div>
     </footer>
 
     <script type="module" src="/assets/site.js"></script>
