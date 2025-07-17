@@ -3,22 +3,29 @@ name: "Fetch and save robots.txt"
 on:
   workflow_dispatch:
   schedule:
-    - cron:  '0 16 * * 1' # * 16:00 UTC +08:00 Mondays
+    - cron: '0 16 * * 1' # 16:00 UTC every Monday
+
+permissions:
+  contents: write
 
 jobs:
   process:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Push changes
+      - name: Fetch and update robots.txt
         run: |
           curl https://raw.githubusercontent.com/ai-robots-txt/ai.robots.txt/refs/heads/main/robots.txt > robots.txt
           git config user.email "bot@drewsiph.dev"
           git config user.name "security [bot]"
           git add robots.txt
-          git commit -m "Update robots.txt" || echo "Nothing changed in ai-robots-txt.txt"
-          git fetch origin main
+
+          # Exit early if there are no changes
+          git diff --cached --quiet && echo "No changes to commit." && exit 0
+
+          git commit -m "Update robots.txt"
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
           git push origin HEAD:main
