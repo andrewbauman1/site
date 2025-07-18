@@ -39,7 +39,7 @@
       <meta content="{{ page.content | strip_html | truncate: 240 }}" name="description">
       <meta content="{{ page.content | strip_html | truncate: 240 }}" name="og:description">
       <meta content="{{ page.date | date_to_xmlschema }}" name="og:published_time">
-      <meta content="Mu-An Chiou" property="profile:username">
+      <meta content="Drewsiph" property="profile:username">
       <!-- https://developer.apple.com/documentation/technotes/tn3156-create-rich-previews-for-messages#Enable-social-network-link-previews -->
       <link href="{{ site.url }}/activitypub.json" rel="alternate" type="application/activity+json">
       {% if page.collection == "posts" or page.collection == "notes" %}
@@ -150,18 +150,17 @@
       {% else %}
         {{ content_and_then_some }}
       {% endif %}
-      <!-- Temporarily Removing Open-Heart
       {% if page.feature == 1 or page.open_heart %}
         <hr class="hr">
         <div class="smol">
           <div class="monospace">
             <div id="like-prompt">Like this {% if page.collection == "posts" %}post{% elsif page.collection == "notes" %}note{% else %}page{% endif %}? let me know!</div>
-            &gt;<open-heart class="text-open-heart" href="https://likes.drewsiph.dev/?id={{ page.url }}" emoji="❤️" aria-labelledby="like-prompt">
+            &gt;<open-heart class="text-open-heart" href="https://openheart.andrewbauman001.workers.dev/?id={{ page.url }}" emoji="❤️" aria-labelledby="like-prompt">
               <span class="on">Liked.<br>(Thanks!)</span><span class="off">Sure. <kbd>⏎</kbd></span>
             </open-heart>
           </div>
         </div>
-      {% endif %} -->
+      {% endif %}
     </main>
     <footer>
       <hr class="hr">
