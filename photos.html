@@ -25,10 +25,9 @@ title: Photos
     <div class="desc photo-metadata">
       <div>{{ photo.uploaded | date: "%Y/%m/%d (%a)" }}</div>
       {% if photo.meta.location  %}<div>@ {{ photo.meta.location }}</div>{% endif %}
-      <!-- Temporarily Removing Open-Heart
-      <open-heart class="text-open-heart" href="https://likes.drewsiph.dev/?id=photo-P{{ photo.id }}" emoji="❤️" aria-labelledby="like-prompt">
+      <open-heart class="text-open-heart" href="https://openheart.andrewbauman001.workers.dev/?id=photo-P{{ photo.id }}" emoji="❤️" aria-labelledby="like-prompt">
         <span class="on">Liked ♥︎.</span><span class="off">Like?</span>
-      </open-heart> -->
+      </open-heart>
     </div>
     {{ photo.meta.caption | markdownify }}
   </figcaption>

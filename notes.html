@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Recent notes
-has_open_heart: false
+has_open_heart: true
 ---
 
 {% assign notes = site.notes | sort: "date" | reverse %}
@@ -37,10 +37,9 @@ has_open_heart: false
         <a href="{{ note.url }}" class="monospace">{{ note.date | date: "%b %e, %Y" }}</a>
       </h2>
       <button type="button" class="share-button monospace" data-share-url="{{ note.url }}" hidden>Share</button>
-      <!-- Temporarily Removing Open-Heart
-      <open-heart class="text-open-heart monospace" href="https://likes.drewsiph.dev/?id={{ note.url }}" emoji="❤️" aria-labelledby="like-prompt">
+      <open-heart class="text-open-heart monospace" href="https://openheart.andrewbauman001.workers.dev/?id={{ note.url }}" emoji="❤️" aria-labelledby="like-prompt">
         <span class="on">Liked ♥︎.</span><span class="off">Like?</span>
-      </open-heart> -->
+      </open-heart>
     </div>
     <div class="note-content" lang="{{ note.lang }}">{{ note.content | markdownify }}</div>
     <div class="note-tags">

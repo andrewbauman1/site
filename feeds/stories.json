@@ -33,7 +33,7 @@ permalink: /stories.json
         "title": "{{ story.meta.title }}",{% endif %}
         "date_expired": "{{ date_expired }}",
         "reactions": {
-          "open_heart_urls": ["https://likes.drewsiph.dev/?id=/stories/{{ story.id }}"]
+          "open_heart_urls": ["https://openheart.andrewbauman001.workers.dev/?id=/stories/{{ story.id }}"]
         }
       }
     }{% endfor %}

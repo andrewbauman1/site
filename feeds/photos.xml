@@ -16,7 +16,7 @@ permalink: /photos.xml
         <title>{{ photo.meta.caption | xml_escape }}</title>
         <description>
           {% capture openheart %}
-            <br><a href="https://drewsiph.dev{% link _pages/like.html %}?id=photo-P{{ photo.id }}">❤️</a><br><small><a href="https://github.com/dddddddddzzzz/OpenHeart">(Backed by OpenHeart protocol)</a></small>
+            <br><a href="https://openheart.andrewbauman001.workers.dev/{% link _pages/like.html %}?id=photo-P{{ photo.id }}">❤️</a><br><small><a href="https://github.com/dddddddddzzzz/OpenHeart">(Backed by OpenHeart protocol)</a></small>
           {% endcapture %}
           {% capture content %}
             <a href="https://imagedelivery.net/LQ_Z8HgbrQpAu3k88KR0Rg/{{ photo.id }}/public">

@@ -15,7 +15,7 @@ permalink: /feed.xml
       {% capture openheart %}
         <hr>
         Like this post? let me know!<br>
-        <a href="https://drewsiph.dev% link _pages/like.html %}?id={{ post.url }}">Sure.</a><br>
+        <a href="https://openheart.andrewbauman001.workers.dev%{% link _pages/like.html %}?id={{ post.url }}">Sure.</a><br>
         <small><a href="https://github.com/dddddddddzzzz/OpenHeart">(Backed by OpenHeart protocol)</a></small>
       {% endcapture %}
       <item>

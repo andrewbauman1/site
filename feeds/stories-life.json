@@ -30,7 +30,7 @@ type: "Life"
         "caption": "{{ story.meta.caption }}",{% endif %}{% if story.meta.title %}
         "title": "{{ story.meta.title }}",{% endif %}
         "reactions": {
-          "open_heart_urls": ["https://likes.drewsiph.dev/?id=/stories/{{ story.id }}"]
+          "open_heart_urls": ["https://openheart.andrewbauman001.workers.dev/?id=/stories/{{ story.id }}"]
         }
       }
     }{% endfor %}

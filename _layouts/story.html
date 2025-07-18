@@ -21,10 +21,9 @@
         <h1 class="normal-heading">
           {{ page.title }}, {{ page.date | date: "%Y/%m/%d %H:%M" }}
         </h1>
-        <!-- Temporarily Removing Open-Heart
-        <open-heart class="text-open-heart monospace" href="https://likes.muan.dev/?id={{ page.url }}" emoji="❤️" aria-labelledby="like-prompt">
+        <open-heart class="text-open-heart monospace" href="https://openheart.andrewbauman001.workers.dev/?id={{ page.url }}" emoji="❤️" aria-labelledby="like-prompt">
           (<span class="on">Liked ♥︎.</span><span class="off">Like?</span>)
-        </open-heart> -->
+        </open-heart>
       </div>
       <div id="description">
         {{ page.caption }}
@@ -37,7 +36,6 @@
         <img src="{{ page.image }}" alt="{{ page.alt }}" class="story-image">
       {% endif %}
     </main>
-    <!-- Temporarily Removing Open-Heart
     <script defer type="module" src="https://unpkg.com/open-heart-element@latest"></script> -->
   </body>
 </html>
