@@ -2,21 +2,21 @@
 ---
 
 :root {
-  --backgroundColor: #D1CFCA;
-  --textColor: #121A2B;
-  --secondaryTextColor: #121A2B;
-  --mutedTextColor: #08272C;
-  --subtleBackgroundColor: #D3D9D4;
-  --heartedBackgroundColor: #D3D9D4;
-  --selectionBackgroundColor: #BEC4D3;
-  --linkColor: #345183;
-  --borderColor: #ccc;
-  --hrColor: #888;
-  --activeColor: #56667B;
-  --langBackgroundColor: #eeeeee;
-  --langShadowColor: transparent;
-  --logoColor: #cccccc;
-  --photoBackground: #f4f4f4;
+  --backgroundColor: #FDF9F3;
+  --textColor: #1C1C1C;
+  --secondaryTextColor: #4F4F4F;
+  --mutedTextColor: #6E7B75;
+  --subtleBackgroundColor: #E4E7E2;
+  --heartedBackgroundColor: #F6E8E2;
+  --selectionBackgroundColor: #D6D9EB;
+  --linkColor: #C86B48;
+  --activeColor: #223A67;
+  --borderColor: #C6C6C6;
+  --hrColor: #A8A8A8;
+  --langBackgroundColor: #F0F0EE;
+  --langShadowColor: rgba(0,0,0,0.08);
+  --logoColor: #333333;
+  --photoBackground: #EFEDE8;
 
   --sansserif: 'outfit', system-ui, sans-serif;
   --monospace: 'atomic-age-regular', ui-monospace, "SFMono-Regular", "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
@@ -24,21 +24,25 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --backgroundColor: #204248;
-    --textColor: #D3D9D4;
-    --secondaryTextColor: #84aeb8;
-    --mutedTextColor: #b4b6b8;
-    --subtleBackgroundColor: #3a3b3b;
-    --heartedBackgroundColor: #652222;
-    --selectionBackgroundColor: #19446b;
-    --linkColor: #84aeb8;
-    --borderColor: #414141;
-    --hrColor: #888;
-    --activeColor: #74d274;
-    --langBackgroundColor: #2c2c2c;
-    --langShadowColor: #0b0c0b33;
-    --logoColor: #555555;
-    --photoBackground: #1a1a1a;
+    --backgroundColor: #204248;          /* Keep — distinctive and deep */
+     --subtleBackgroundColor: #2A3A38;    /* Slight lift, same tonal family */
+     --photoBackground: #1a1f1e;          /* Slightly softened near-black */
+
+     --textColor: #E5E1DC;                /* Warm light beige for contrast */
+     --secondaryTextColor: #C5BFB8;       /* Soft taupe-gray */
+     --mutedTextColor: #9DA8A3;           /* Desaturated green-gray */
+
+     --linkColor: #85b6a6;         /* Soft rust for brand pop */
+     --activeColor: #BA5A49;              /* Deeper rust for hover/focus */
+     --heartedBackgroundColor: #884A3D;   /* Earthy emotional tone */
+
+     --selectionBackgroundColor: #3A5E5A; /* Muted green-blue — ties into bg */
+     --borderColor: #3A4B49;              /* Slight depth without harsh contrast */
+     --hrColor: #666666;
+
+     --langBackgroundColor: #2c2c2c;      /* Same — works */
+     --langShadowColor: rgba(0, 0, 0, 0.2);
+     --logoColor: #AAAAAA;
   }
 }
 
@@ -1019,14 +1023,52 @@ label:has(input:not(:checked)) ~ label:has(input:not(:checked)) ~ label:has(inpu
   color: var(--activeColor);
 }
 
-/* Note Content */
+:root {
+  /* Light mode note styling */
+  --noteBackground: rgba(255, 255, 255, 0.7);
+  --noteBorderColor: rgba(0, 0, 0, 0.1);
+  --noteShadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Dark mode note styling */
+    --noteBackground: rgba(255, 255, 255, 0.06);
+    --noteBorderColor: rgba(255, 255, 255, 0.12);
+    --noteShadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+}
+
 .note {
   padding: 1.5rem;
-  border-radius: 0.5em;
-  background: rgba(255, 255, 255, 0.15); /* Slightly stronger glass effect */
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1), inset 0 2px 4px rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.75em;
+  background: var(--noteBackground);
+  border: 1px solid var(--noteBorderColor);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: var(--noteShadow);
+  color: var(--textColor);
 }
+
+/* Optional emphasis label inside */
+.note strong {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5em;
+  color: var(--linkColor);
+}
+
+/* Note Content
+.note {
+  padding: 1.5rem;
+ border-radius: 0.75em;
+ background: rgba(255, 255, 255, 0.06); /* more subtle transparency
+ border: 1px solid rgba(255, 255, 255, 0.12);
+ backdrop-filter: blur(8px);
+ -webkit-backdrop-filter: blur(8px);
+ box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+ color: var(--textColor);
+} */
 
 .general-actions {
   font-size: 0.9rem;
