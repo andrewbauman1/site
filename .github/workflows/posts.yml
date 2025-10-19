@@ -1,0 +1,54 @@
+name: "Add a post"
+
+on:
+  workflow_dispatch:
+    inputs:
+      title:
+        description: "Post title"
+        type: string
+        required: true
+      content:
+        description: "Post content (markdown)"
+        type: string
+        required: true
+      date:
+        description: "Post date (YYYY-MM-DD)"
+        type: string
+        required: true
+      layout:
+        description: "Layout"
+        type: string
+        required: false
+        default: "default"
+      feature:
+        description: "Feature flag (0 or 1)"
+        type: string
+        required: false
+concurrency: ci-${{ github.action }}
+permissions:
+  contents: write
+jobs:
+  process:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: 'main'
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 17.7
+
+      - name: Run script
+        run: node .github/workflows/scripts/posts.js "${{ inputs.date }}" "${{ inputs.title }}" "${{ inputs.layout }}" "${{ inputs.feature }}" "${{ inputs.content }}"
+
+      - name: Push changes
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config user.email 'bot@drewsiph.dev'
+          git config user.name 'drewsiph [bot]'
+          git add .
+          git commit -m "Add post via Integration" || echo "Nothing to commit"
+          git fetch origin main
+          git push origin HEAD:main
