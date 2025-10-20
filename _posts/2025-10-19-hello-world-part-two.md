@@ -2,7 +2,6 @@
 layout: default
 date: 2025-10-19
 title: Hello World - Part Two
-feature: 1
 ---
 
 Testing a very basic version of creating new posts via an Android App Integration.
