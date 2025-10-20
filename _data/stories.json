@@ -1612,5 +1612,23 @@
       "https://imagedelivery.net/LQ_Z8HgbrQpAu3k88KR0Rg/6a7b413c-8d4a-4e1a-8a36-73259b3d6d00/public",
       "https://imagedelivery.net/LQ_Z8HgbrQpAu3k88KR0Rg/6a7b413c-8d4a-4e1a-8a36-73259b3d6d00/thumbnail"
     ]
+  },
+  {
+    "uploaded": "2025-10-20T23:25:19.662413Z",
+    "id": "06023407c0740498ee53864f6a8e2827",
+    "filename": "19.mp4",
+    "meta": {
+      "caption": "Testing a video import to stories",
+      "tags": [
+        "Highlight"
+      ],
+      "url": "https://customer-62286aey9r4jhxc3.cloudflarestream.com/06023407c0740498ee53864f6a8e2827/manifest/video.m3u8",
+      "title": "Testing a video import to stories"
+    },
+    "requireSignedURLs": false,
+    "thumbnail": "https://customer-62286aey9r4jhxc3.cloudflarestream.com/06023407c0740498ee53864f6a8e2827/thumbnails/thumbnail.jpg",
+    "playback": {
+      "hls": "https://customer-62286aey9r4jhxc3.cloudflarestream.com/06023407c0740498ee53864f6a8e2827/manifest/video.m3u8"
+    }
   }
 ]
