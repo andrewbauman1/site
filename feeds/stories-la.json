@@ -18,7 +18,7 @@ type: "LA"
       "id": "{{ story.id }}",
       "date_published": "{{ story.uploaded | date_to_xmlschema }}", {% assign date_expired = story.uploaded | date: "%s" | plus: 86400 | date_to_xmlschema %}
       "tags": [{% for tag in story.meta.tags %}"{{ tag }}"{% if tag != story.meta.tags.last %}, {% endif %}{% endfor %}],
-      "content_html": "{% if story.playback %}<video src='${story.meta.url}' controls></video>{{ story.meta.title }}{% else %}<img src='https://imagedelivery.net/LQ_Z8HgbrQpAu3k88KR0Rg/{{ story.id }}/public' alt='{{ story.meta.alt }}'>{% endif %}",
+      "content_html": "{% if story.playback %}<video src='{{ story.meta.url }}' controls></video>{{ story.meta.title }}{% else %}<img src='https://imagedelivery.net/LQ_Z8HgbrQpAu3k88KR0Rg/{{ story.id }}/public' alt='{{ story.meta.alt }}'>{% endif %}",
       "title": "{{ story.uploaded | date: "%Y/%m/%d" }}",
       "summary": "{% if story.meta.caption == "" %}N/A{% else %}{{ story.meta.caption }}{% endif %} ({{ story.meta.alt }})",
       "authors": [{"name": "Andrew Bauman", "url": "https://drewsiph.dev"}],
