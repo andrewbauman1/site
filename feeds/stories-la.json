@@ -18,14 +18,14 @@ type: "LA"
       "id": "{{ story.id }}",
       "date_published": "{{ story.uploaded | date_to_xmlschema }}", {% assign date_expired = story.uploaded | date: "%s" | plus: 86400 | date_to_xmlschema %}
       "tags": [{% for tag in story.meta.tags %}"{{ tag }}"{% if tag != story.meta.tags.last %}, {% endif %}{% endfor %}],
-      "content_html": "{% if story.playback %}<video src='{{ story.meta.url }}' controls></video>{{ story.meta.title | replace: '"', '\"' }}{% else %}<img src='https://imagedelivery.net/LQ_Z8HgbrQpAu3k88KR0Rg/{{ story.id }}/public' alt='{{ story.meta.alt | replace: '"', '&quot;' }}'>{% endif %}",
+      "content_html": "{% if story.playback %}<video src='https://customer-62286aey9r4jhxc3.cloudflarestream.com/{{ story.id }}/downloads/default.mp4' controls></video>{% else %}<img src='https://imagedelivery.net/LQ_Z8HgbrQpAu3k88KR0Rg/{{ story.id }}/public' alt='{{ story.meta.alt | replace: '"', '&quot;' }}'>{% endif %}",
       "title": "{{ story.uploaded | date: "%Y/%m/%d" }}",
       "summary": "{% if story.meta.caption == "" %}N/A{% else %}{{ story.meta.caption | replace: '"', '\"' }}{% endif %} ({{ story.meta.alt | replace: '"', '\"' }})",
       "authors": [{"name": "Andrew Bauman", "url": "https://drewsiph.dev"}],
       "url": "{{ site.url }}/stories/{{ story.id }}",
       "_open_stories": {
-        "mime_type": "{% if story.playback %}application/vnd.apple.mpegurl{% elsif story.meta.filetype %}{{ story.meta.filetype }}{% else %}image/jpeg{% endif %}",
-        "url": "{% if story.playback %}{{ story.meta.url }}{% else %}https://imagedelivery.net/LQ_Z8HgbrQpAu3k88KR0Rg/{{ story.id }}/public{% endif %}",{% if story.meta.alt %}
+        "mime_type": "{% if story.playback %}video/mp4{% elsif story.meta.filetype %}{{ story.meta.filetype }}{% else %}image/jpeg{% endif %}",
+        "url": "{% if story.playback %}https://customer-62286aey9r4jhxc3.cloudflarestream.com/{{ story.id }}/downloads/default.mp4{% else %}https://imagedelivery.net/LQ_Z8HgbrQpAu3k88KR0Rg/{{ story.id }}/public{% endif %}",{% if story.meta.alt %}
         "alt": "{{ story.meta.alt | replace: '"', '\"' }}",{% endif %}{% if story.meta.caption %}
         "caption": "{{ story.meta.caption | replace: '"', '\"' }}",{% endif %}{% if story.meta.title %}
         "title": "{{ story.meta.title | replace: '"', '\"' }}",{% endif %}
