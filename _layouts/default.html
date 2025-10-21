@@ -179,27 +179,47 @@
     <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
     <script>
       // Initialize HLS.js for video elements with .m3u8 sources
-      document.addEventListener('DOMContentLoaded', function() {
-        function initHLS() {
-          const videos = document.querySelectorAll('video[src*=".m3u8"]');
-          videos.forEach(function(video) {
+      function initHLS() {
+        const videos = document.querySelectorAll('video');
+        videos.forEach(function(video) {
+          // Skip if already initialized
+          if (video.dataset.hlsInitialized) return;
+
+          const src = video.src || (video.querySelector('source') && video.querySelector('source').src);
+          if (src && src.includes('.m3u8')) {
             if (Hls.isSupported()) {
-              const hls = new Hls();
-              hls.loadSource(video.src);
+              const hls = new Hls({
+                debug: false,
+                enableWorker: true,
+                lowLatencyMode: false,
+              });
+              hls.loadSource(src);
               hls.attachMedia(video);
+              video.dataset.hlsInitialized = 'true';
+              console.log('HLS initialized for:', src);
             } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
               // Native HLS support (Safari)
-              video.src = video.src;
+              video.dataset.hlsInitialized = 'true';
             }
-          });
-        }
+          }
+        });
+      }
 
-        // Run on page load
+      // Run immediately and on DOM ready
+      initHLS();
+      document.addEventListener('DOMContentLoaded', initHLS);
+
+      // Re-run when new videos are added (for open-stories dynamic content)
+      const observer = new MutationObserver(function(mutations) {
         initHLS();
+      });
+      observer.observe(document.body, { childList: true, subtree: true });
 
-        // Re-run when new videos are added (for open-stories dynamic content)
-        const observer = new MutationObserver(initHLS);
-        observer.observe(document.body, { childList: true, subtree: true });
+      // Also try to init when stories component loads
+      window.addEventListener('load', function() {
+        setTimeout(initHLS, 100);
+        setTimeout(initHLS, 500);
+        setTimeout(initHLS, 1000);
       });
     </script>
     {% endif %}
