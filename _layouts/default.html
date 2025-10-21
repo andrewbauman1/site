@@ -172,57 +172,48 @@
       <div id="visits"></div>
     </footer>
 
-    <script type="module" src="/assets/site.js"></script>
     {% if page.root %}
-    <script type="module" src="/assets/root.js"></script>
-    <script type="module" src="https://unpkg.com/open-stories-element@latest"></script>
     <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
     <script>
-      // Initialize HLS.js for video elements with .m3u8 sources
-      function initHLS() {
-        const videos = document.querySelectorAll('video');
-        videos.forEach(function(video) {
-          // Skip if already initialized
-          if (video.dataset.hlsInitialized) return;
+      // Intercept video element creation to add HLS support before open-stories tries to play
+      (function() {
+        const originalCreateElement = document.createElement.bind(document);
+        document.createElement = function(tagName) {
+          const element = originalCreateElement(tagName);
 
-          const src = video.src || (video.querySelector('source') && video.querySelector('source').src);
-          if (src && src.includes('.m3u8')) {
-            if (Hls.isSupported()) {
-              const hls = new Hls({
-                debug: false,
-                enableWorker: true,
-                lowLatencyMode: false,
-              });
-              hls.loadSource(src);
-              hls.attachMedia(video);
-              video.dataset.hlsInitialized = 'true';
-              console.log('HLS initialized for:', src);
-            } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-              // Native HLS support (Safari)
-              video.dataset.hlsInitialized = 'true';
-            }
+          if (tagName.toLowerCase() === 'video') {
+            // Intercept src setter
+            const originalSrcDescriptor = Object.getOwnPropertyDescriptor(HTMLMediaElement.prototype, 'src');
+            Object.defineProperty(element, 'src', {
+              get: function() {
+                return originalSrcDescriptor.get.call(this);
+              },
+              set: function(value) {
+                if (value && value.includes('.m3u8') && Hls.isSupported() && !this.dataset.hlsAttached) {
+                  console.log('Intercepting HLS video:', value);
+                  this.dataset.hlsAttached = 'true';
+                  const hls = new Hls({
+                    debug: true,
+                    enableWorker: true,
+                  });
+                  hls.loadSource(value);
+                  hls.attachMedia(this);
+                  this._hls = hls;
+                  return; // Don't set src, hls.js handles it
+                }
+                originalSrcDescriptor.set.call(this, value);
+              }
+            });
           }
-        });
-      }
 
-      // Run immediately and on DOM ready
-      initHLS();
-      document.addEventListener('DOMContentLoaded', initHLS);
-
-      // Re-run when new videos are added (for open-stories dynamic content)
-      const observer = new MutationObserver(function(mutations) {
-        initHLS();
-      });
-      observer.observe(document.body, { childList: true, subtree: true });
-
-      // Also try to init when stories component loads
-      window.addEventListener('load', function() {
-        setTimeout(initHLS, 100);
-        setTimeout(initHLS, 500);
-        setTimeout(initHLS, 1000);
-      });
+          return element;
+        };
+      })();
     </script>
+    <script type="module" src="/assets/root.js"></script>
+    <script type="module" src="https://unpkg.com/open-stories-element@latest"></script>
     {% endif %}
+    <script type="module" src="/assets/site.js"></script>
     {% if page.feature == 1 or page.open_heart or page.has_open_heart %}
     <script type="module" src="https://unpkg.com/open-heart-element@latest"></script>
     <script>
