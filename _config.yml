@@ -42,4 +42,4 @@ markdown: kramdown
 commonmark:
   options: ["UNSAFE", "HARDBREAKS"]
   extensions: ["strikethrough", "autolink", "table"]
-recent_date: "2025/7/16"
+recent_date: "2025/10/22"
