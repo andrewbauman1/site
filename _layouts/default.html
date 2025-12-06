@@ -68,6 +68,13 @@
   </head>
 
   <body class="{% if page.root != true %}post-body{% endif %} col-{{ page.collection }}" data-page-type="{{ page.type }}">
+    <!-- Theme Toggle -->
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+      <span class="toggle-track">
+        <span class="toggle-thumb"></span>
+      </span>
+    </button>
+
     {% if page.root == true %}
     <div class="vertical-text">DREWSIPH.DEV</div>
     {% endif %}
@@ -188,6 +195,32 @@
     <script type="module" src="https://unpkg.com/open-stories-element@latest"></script>
     {% endif %}
     <script type="module" src="/assets/site.js"></script>
+    <script>
+      // Theme toggle functionality
+      const themeToggle = document.getElementById('theme-toggle');
+      const html = document.documentElement;
+
+      // Check for saved theme preference or default to system preference
+      const savedTheme = localStorage.getItem('theme');
+      const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+      if (savedTheme) {
+        html.setAttribute('data-theme', savedTheme);
+        themeToggle.setAttribute('aria-checked', savedTheme === 'dark');
+      } else {
+        html.setAttribute('data-theme', systemPrefersDark ? 'dark' : 'light');
+        themeToggle.setAttribute('aria-checked', systemPrefersDark);
+      }
+
+      themeToggle.addEventListener('click', () => {
+        const currentTheme = html.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+        html.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        themeToggle.setAttribute('aria-checked', newTheme === 'dark');
+      });
+    </script>
     {% if page.feature == 1 or page.open_heart or page.has_open_heart %}
     <script type="module" src="https://unpkg.com/open-heart-element@latest"></script>
     <script>
