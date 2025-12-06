@@ -68,6 +68,9 @@
   </head>
 
   <body class="{% if page.root != true %}post-body{% endif %} col-{{ page.collection }}" data-page-type="{{ page.type }}">
+    {% if page.root == true %}
+    <div class="vertical-text">DREWSIPH.DEV</div>
+    {% endif %}
     <header>
       <div class="logo-container">
         {% if page.root != true %}
