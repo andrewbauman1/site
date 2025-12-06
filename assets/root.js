@@ -30,22 +30,24 @@ settime()
 
 const statusEl = document.querySelector('[data-status-loading]')
 
-try {
-  statusEl.hidden = false
-  const s = await (await fetch('https://raw.githubusercontent.com/andrewbauman1/resources/refs/heads/main/status.txt')).text()
-  if (s.trim() !== '') {
-    const [datetime, text] = s.split('\n')
-    const date = relativeDate(new Date(datetime))
-    if (date) {
-      document.querySelector('[data-status-text]').textContent = text
-      document.querySelector('[data-status-datetime]').textContent = ` ${date}`
+;(async () => {
+  try {
+    statusEl.hidden = false
+    const s = await (await fetch('https://raw.githubusercontent.com/andrewbauman1/resources/refs/heads/main/status.txt')).text()
+    if (s.trim() !== '') {
+      const [datetime, text] = s.split('\n')
+      const date = relativeDate(new Date(datetime))
+      if (date) {
+        document.querySelector('[data-status-text]').textContent = text
+        document.querySelector('[data-status-datetime]').textContent = ` ${date}`
+      }
     }
+    statusEl.removeAttribute('data-status-loading')
+  } catch (e) {
+    statusEl.remove()
+    console.warn(e)
   }
-  statusEl.removeAttribute('data-status-loading')
-} catch (e) {
-  statusEl.remove()
-  console.warn(e)
-}
+})()
 
 function relativeDate(date) {
   const now = new Date()
