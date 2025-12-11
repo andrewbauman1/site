@@ -3,6 +3,7 @@ title: Andrew Bauman
 permalink: /es-ES/
 layout: default
 root: true
+has_open_heart: true
 ---
 
 {% assign hour = site.time | date: "%H" | plus: 0 %}
@@ -92,9 +93,15 @@ root: true
   </div>
   {% assign note = site.notes | last %}
   <div class="note">
-    <time class="general-actions monospace">
-      {{ note.date | date: "%b %e, %Y" }}
-    </time>
+    <div class="general-actions">
+      <h2 class="text">
+        <a href="{{ note.url }}" class="monospace">{{ note.date | date: "%b %e, %Y" }}</a>
+      </h2>
+      <button type="button" class="share-button monospace" data-share-url="{{ note.url }}" hidden>Compartir</button>
+      <open-heart class="text-open-heart monospace" href="https://openheart.andrewbauman001.workers.dev/?id={{ note.url }}" emoji="❤️" aria-labelledby="like-prompt">
+        <span class="on">Me gusta ♥︎.</span><span class="off">¿Te gusta?</span>
+      </open-heart>
+    </div>
     <div class="note-content" lang="{{ note.lang }}">{{ note.content | markdownify }}</div>
     <div class="note-tags">
       {% for tag in note.tags %}
