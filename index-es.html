@@ -50,12 +50,12 @@ has_open_heart: true
 
 <nav aria-label="Contenido adicional">
   <a href="{% link _pages/blogroll.md %}">Sigiendo</a><hr class="inline-hr">
-  <a href="#">Cosas que he montado</a>
+  <a href="{% link _pages/pet-projects.md %}">Proyectos Personales</a>
 </nav>
 <nav aria-label="Social">
   <a href="https://github.com/andrewbauman1" target="_blank" rel="me">GitHub</a><hr class="inline-hr">
-  <a href="https://bsky.app/profile/drewsiph.dev" target="_blank" rel="me">BlueSky</a><hr class="inline-hr">
-  <a href="https://www.pinterest.com/drewsiph_/" target="_blank" rel="me">Pinterest</a>
+  <a href="https://www.pinterest.com/drewsiph_/" target="_blank" rel="me">Pinterest</a><hr class="inline-hr">
+  <a href="mailto:andrewbauman001@gmail.com">Email</a>
 </nav>
 
 <div class="lang">
@@ -85,31 +85,25 @@ has_open_heart: true
 
 <hr class="hr">
 
-<section class="notes-glass">
-  <div class="notes-header">
-    <h2 class="notes-heading">Notas sueltas</h2>
-    <a href="/notes" class="styled-link">Ver los recientes</a>
-    <a href="/notes.xml" class="styled-link">RSS</a>
+<h2 class="normal-heading">Notas sueltas</h2><a href="/notes" class="styled-link">Ver los recientes</a> <a href="/notes.xml" class="styled-link">RSS</a>
+{% assign note = site.notes | last %}
+<div class="note" style="margin-top: 0.5em;">
+  <div class="general-actions">
+    <h2 class="text">
+      <a href="{{ note.url }}" class="monospace">{{ note.date | date: "%b %e, %Y" }}</a>
+    </h2>
+    <button type="button" class="share-button monospace" data-share-url="{{ note.url }}" hidden>Compartir</button>
+    <open-heart class="text-open-heart monospace" href="https://openheart.andrewbauman001.workers.dev/?id={{ note.url }}" emoji="❤️" aria-labelledby="like-prompt">
+      <span class="on">Me gusta ♥︎.</span><span class="off">¿Te gusta?</span>
+    </open-heart>
   </div>
-  {% assign note = site.notes | last %}
-  <div class="note">
-    <div class="general-actions">
-      <h2 class="text">
-        <a href="{{ note.url }}" class="monospace">{{ note.date | date: "%b %e, %Y" }}</a>
-      </h2>
-      <button type="button" class="share-button monospace" data-share-url="{{ note.url }}" hidden>Compartir</button>
-      <open-heart class="text-open-heart monospace" href="https://openheart.andrewbauman001.workers.dev/?id={{ note.url }}" emoji="❤️" aria-labelledby="like-prompt">
-        <span class="on">Me gusta ♥︎.</span><span class="off">¿Te gusta?</span>
-      </open-heart>
-    </div>
-    <div class="note-content" lang="{{ note.lang }}">{{ note.content | markdownify }}</div>
-    <div class="note-tags">
-      {% for tag in note.tags %}
-        <span class="note-tag" data-tag="{{ tag }}">{{ tag }}</span>
-      {% endfor %}
-    </div>
+  <div class="note-content" lang="{{ note.lang }}">{{ note.content | markdownify }}</div>
+  <div class="note-tags">
+    {% for tag in note.tags %}
+      <span class="note-tag" data-tag="{{ tag }}">{{ tag }}</span>
+    {% endfor %}
   </div>
-</section>
+</div>
 
 
 <hr class="hr">
