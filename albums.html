@@ -1,0 +1,43 @@
+---
+layout: default
+title: Photo Albums
+type: static
+---
+
+<p>Browse photos organized by album.</p>
+
+{% comment %} Collect all unique albums {% endcomment %}
+{% assign all_albums = "" | split: "" %}
+{% for photo in site.data.photos %}
+  {% if photo.meta.albums %}
+    {% for album in photo.meta.albums %}
+      {% unless all_albums contains album %}
+        {% assign all_albums = all_albums | push: album %}
+      {% endunless %}
+    {% endfor %}
+  {% endif %}
+{% endfor %}
+
+{% comment %} Sort albums alphabetically {% endcomment %}
+{% assign sorted_albums = all_albums | sort %}
+
+<ul class="terminal">
+{% for album in sorted_albums %}
+  {% comment %} Count photos in this album {% endcomment %}
+  {% assign album_photos = site.data.photos | where_exp: "photo", "photo.meta.albums contains album" %}
+  {% assign photo_count = album_photos | size %}
+
+  {% comment %} Get first photo as thumbnail {% endcomment %}
+  {% assign first_photo = album_photos | first %}
+  {% capture thumbnail_url %}{% for url in first_photo.variants %}{% if url contains "/thumbnail" %}{{ url }}{% endif %}{% endfor %}{% endcapture %}
+
+  <li class="line">
+    <a href="/album?name={{ album | url_encode }}">
+      <img src="{{ thumbnail_url }}" height="100" alt="{{ album }}" loading="lazy" style="aspect-ratio: {{ first_photo.meta.ratio }}; vertical-align: middle; margin-right: 1em;">
+      <strong>{{ album }}</strong> ({{ photo_count }} {% if photo_count == 1 %}photo{% else %}photos{% endif %})
+    </a>
+    {% assign album_slug = album | slugify %}
+    <a href="/feeds/albums/{{ album_slug }}.xml" class="styled-link">RSS</a>
+  </li>
+{% endfor %}
+</ul>

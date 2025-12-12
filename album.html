@@ -1,0 +1,199 @@
+---
+layout: default
+type: photos
+has_open_heart: false
+title: Album
+---
+
+<div id="album-content">
+  <p class="desc">Loading album...</p>
+</div>
+
+<div class="photos-wrapper" id="photos" style="display: none;">
+</div>
+
+<script>
+// Add layout selector controls
+const albumContentDiv = document.getElementById('album-content');
+const layoutControls = `
+  <input type="radio" name="layout" value="y-scroll" id="y-scroll" checked>
+  <label for="y-scroll">
+    <svg width="15" height="15" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg"><title>vertical scroll</title><path d="M55 0a5 5 0 0 1 5 5v31a5 5 0 0 1-5 5H5a5 5 0 0 1-5-5V5a5 5 0 0 1 5-5h50ZM55 47a5 5 0 0 1 5 5v8H0v-8a5 5 0 0 1 5-5h50Z" fill="#D9D9D9"/></svg>
+  </label>
+  <input type="radio" name="layout" value="x-scroll" id="x-scroll">
+  <label for="x-scroll">
+    <svg width="15" height="15" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg"><title>horizontal scroll</title><path d="M0 5a5 5 0 0 1 5-5h30a5 5 0 0 1 5 5v50a5 5 0 0 1-5 5H5a5 5 0 0 1-5-5V5ZM47 5a5 5 0 0 1 5-5h8v60h-8a5 5 0 0 1-5-5V5Z" fill="#D9D9D9"/></svg>
+  </label>
+  <input type="radio" name="layout" value="grid2fr" id="grid2fr">
+  <label for="grid2fr">
+    <svg width="15" height="15" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg"><title>grid 2 columns</title><path d="M0 37c0-2 2-4 4-4h19c2 0 4 2 4 4v19c0 2-2 4-4 4H4c-2 0-4-2-4-4V37zM0 4c0-2 2-4 4-4h19c2 0 4 2 4 4v19c0 2-2 4-4 4H4c-2 0-4-2-4-4V4zM33 37c0-2 2-4 4-4h19c2 0 4 2 4 4v19c0 2-2 4-4 4H37c-2 0-4-2-4-4V37zM33 4c0-2 2-4 4-4h19c2 0 4 2 4 4v19c0 2-2 4-4 4H37c-2 0-4-2-4-4V4z" fill="#D9D9D9"/></svg>
+  </label>
+  <input type="radio" name="layout" value="grid3fr" id="grid3fr">
+  <label for="grid3fr">
+    <svg width="15" height="15" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg"><title>grid 3 columns</title><path d="M22 4c0-2 2-4 4-4h8c2 0 4 2 4 4v8c0 2-2 4-4 4h-8c-2 0-4-2-4-4V4zM0 26c0-2 2-4 4-4h8c2 0 4 2 4 4v8c0 2-2 4-4 4H4c-2 0-4-2-4-4v-8zM22 26c0-2 2-4 4-4h8c2 0 4 2 4 4v8c0 2-2 4-4 4h-8c-2 0-4-2-4-4v-8zM0 48c0-2 2-4 4-4h8c2 0 4 2 4 4v8c0 2-2 4-4 4H4c-2 0-4-2-4-4v-8zM44 26c0-2 2-4 4-4h8c2 0 4 2 4 4v8c0 2-2 4-4 4h-8c-2 0-4-2-4-4v-8zM22 48c0-2 2-4 4-4h8c2 0 4 2 4 4v8c0 2-2 4-4 4h-8c-2 0-4-2-4-4v-8zM44 48c0-2 2-4 4-4h8c2 0 4 2 4 4v8c0 2-2 4-4 4h-8c-2 0-4-2-4-4v-8zM0 4c0-2 2-4 4-4h8c2 0 4 2 4 4v8c0 2-2 4-4 4H4c-2 0-4-2-4-4V4zM44 4c0-2 2-4 4-4h8c2 0 4 2 4 4v8c0 2-2 4-4 4h-8c-2 0-4-2-4-4V4z" fill="#D9D9D9"/></svg>
+  </label>
+`;
+
+// Add layout controls after album content is updated
+function addLayoutControls() {
+  const controls = document.createElement('div');
+  controls.innerHTML = layoutControls;
+  albumContentDiv.parentNode.insertBefore(controls.firstElementChild, albumContentDiv);
+}
+</script>
+
+<script>
+(function() {
+  // Get album name from URL parameter
+  const urlParams = new URLSearchParams(window.location.search);
+  const albumName = urlParams.get('name');
+
+  console.log('Album name from URL:', albumName);
+
+  if (!albumName) {
+    document.getElementById('album-content').innerHTML = `
+      <h2 class="normal-heading">No Album Specified</h2>
+      <p><a href="/albums">← Back to albums</a></p>
+    `;
+    return;
+  }
+  // Fetch photos data from Jekyll data
+  const photosData = {{ site.data.photos | jsonify }};
+  console.log('Photos data loaded:', photosData);
+
+  try {
+    // Filter photos by album
+    const albumPhotos = photosData.filter(photo => {
+      if (!photo.meta || !photo.meta.albums) return false;
+      return photo.meta.albums.some(album =>
+        album.toLowerCase() === albumName.toLowerCase()
+      );
+    }).reverse();
+
+    console.log('Filtered album photos:', albumPhotos);
+
+    if (albumPhotos.length === 0) {
+      document.getElementById('album-content').innerHTML = `
+        <h2 class="normal-heading">Album Not Found</h2>
+        <p>No photos found in album "${albumName}".</p>
+        <p><a href="/albums">← Back to albums</a></p>
+      `;
+      return;
+    }
+
+    // Update page title and header
+    document.title = `${albumName} - Photo Album @ Andrew Bauman`;
+
+    // Update the h1 header with album name
+    const h1Element = document.querySelector('h1.h1 span');
+    if (h1Element) {
+      h1Element.textContent = albumName;
+    }
+
+    // Update the back arrow to go to /albums
+    const backLink = document.querySelector('a.back-link');
+    if (backLink) {
+      backLink.href = '/albums';
+    }
+
+    const albumSlug = albumName.toLowerCase().replace(/\s+/g, '-');
+    document.getElementById('album-content').innerHTML = `
+      <div class="desc">${albumPhotos.length} photo${albumPhotos.length === 1 ? '' : 's'} | <a href="/feeds/albums/${albumSlug}.xml" class="styled-link">RSS</a></div>
+    `;
+
+    // Add layout controls
+    addLayoutControls();
+
+    // Render photos
+    const photosContainer = document.getElementById('photos');
+    photosContainer.style.display = 'block';
+
+    albumPhotos.forEach(photo => {
+      const publicUrl = photo.variants.find(url => url.includes('/public'));
+      const ratio = parseFloat(photo.meta.ratio) || 1;
+      const orientation = ratio > 1 ? 'landscape' : 'portrait';
+
+      const figure = document.createElement('figure');
+      figure.id = `P${photo.id}`;
+      figure.className = `figure-${orientation}`;
+
+      figure.innerHTML = `
+        <a href="${publicUrl}" class="image-link">
+          <img
+            src="${publicUrl}"
+            height="2400"
+            style="aspect-ratio: ${photo.meta.ratio}"
+            alt="${photo.meta.alt || ''}"
+            title="${photo.meta.alt || ''}"
+            class="${orientation}"
+            loading="lazy">
+        </a>
+        <figcaption>
+          <div class="desc photo-metadata">
+            <div>${new Date(photo.uploaded).toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit', weekday: 'short' })}</div>
+            ${photo.meta.location ? `<div>@ ${photo.meta.location}</div>` : ''}
+            <open-heart class="text-open-heart" href="https://openheart.andrewbauman001.workers.dev/?id=photo-P${photo.id}" emoji="❤️" aria-labelledby="like-prompt">
+              <span class="on">Liked ♥︎.</span><span class="off">Like?</span>
+            </open-heart>
+          </div>
+          ${photo.meta.caption ? `<p>${photo.meta.caption}</p>` : ''}
+        </figcaption>
+      `;
+
+      photosContainer.appendChild(figure);
+    });
+
+    // Initialize open-heart elements if the script is loaded
+    if (typeof customElements !== 'undefined') {
+      customElements.whenDefined('open-heart').then(() => {
+        const observer = new IntersectionObserver((entries, observer) => {
+          entries.forEach(async (entry) => {
+            if (entry.target.tagName === 'OPEN-HEART' && entry.isIntersecting) {
+              entry.target.getCount();
+              observer.unobserve(entry.target);
+            }
+          });
+        });
+
+        document.querySelectorAll('open-heart').forEach(oh => observer.observe(oh));
+      });
+    }
+  } catch (error) {
+    console.error('Error loading photos:', error);
+    document.getElementById('album-content').innerHTML = `
+      <h2 class="normal-heading">Error</h2>
+      <p>Failed to load album photos: ${error.message}</p>
+      <p><a href="/albums">← Back to albums</a></p>
+    `;
+  }
+})();
+</script>
+
+<script>
+// Photo layout switching functionality
+const photos = document.querySelector('#photos');
+const xScroll = document.querySelector('#x-scroll');
+
+// move scroll area into viewport and user focus
+document.addEventListener('change', function(event) {
+  if (xScroll && xScroll.checked) {
+    photos.scrollIntoView();
+    photos.setAttribute('tabindex', '-1');
+    photos.focus();
+
+    photos.addEventListener('blur', function() {
+      photos.blur();
+    }, {once: true});
+  }
+});
+
+// return focus
+document.addEventListener('keydown', function(event) {
+  if (xScroll && event.key === 'Escape' && xScroll.checked && photos.contains(event.target)) {
+    xScroll.focus();
+    window.scrollTo(0, 0);
+  }
+});
+</script>
+
+<script type="module" src="https://unpkg.com/open-heart-element@latest"></script>

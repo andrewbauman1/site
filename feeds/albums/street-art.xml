@@ -1,0 +1,30 @@
+---
+layout: null
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>{{ site.title }} - Street Art Photos</title>
+    <description>Street art and graffiti</description>
+    <link>{{ site.url }}/album?name=Street%20Art</link>
+    <atom:link href="{{ site.url }}/feeds/albums/street-art.xml" rel="self" type="application/rss+xml" />
+    <language>en-US</language>
+    <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
+
+    {% assign album_photos = site.data.photos | where_exp: "photo", "photo.meta.albums contains 'Street Art'" | reverse %}
+    {% for photo in album_photos %}
+    <item>
+      <title>{{ photo.meta.caption | default: photo.meta.alt | xml_escape }}</title>
+      <link>{{ site.url }}/photos#P{{ photo.id }}</link>
+      <guid>{{ site.url }}/photos#P{{ photo.id }}</guid>
+      <pubDate>{{ photo.uploaded | date_to_rfc822 }}</pubDate>
+      <description><![CDATA[
+        {% capture image_url %}{% for url in photo.variants %}{% if url contains "/public" %}{{ url }}{% endif %}{% endfor %}{% endcapture %}
+        <img src="{{ image_url }}" alt="{{ photo.meta.alt | xml_escape }}" style="max-width: 100%; height: auto;" />
+        {% if photo.meta.caption %}<p>{{ photo.meta.caption | xml_escape }}</p>{% endif %}
+        {% if photo.meta.location %}<p>Location: {{ photo.meta.location }}</p>{% endif %}
+      ]]></description>
+    </item>
+    {% endfor %}
+  </channel>
+</rss>

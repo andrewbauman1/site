@@ -72,10 +72,23 @@ has_open_heart: true
 
 <hr class="hr">
 
-<h2 class="normal-heading">Fotos</h2><a href="/photos" class="styled-link">Todas las fotos</a> <a href="/photos.xml" class="styled-link">RSS</a>
+<h2 class="normal-heading">Fotos</h2><a href="/albums" class="styled-link">Ver álbumes</a> <a href="/photos" class="styled-link">Todas las fotos</a> <a href="/photos.xml" class="styled-link">RSS</a>
+
+<h3 class="monospace">Destacadas</h3>
 <div class="photos">
-{% assign photos = site.data.photos | reverse | slice: 0, 10 %}
-{% for photo in photos %}
+{% assign featured_photos = site.data.photos | where_exp: "photo", "photo.meta.featured == true" %}
+{% for photo in featured_photos %}
+  {% capture image_url %}{% for url in photo.variants %}{% if url contains "/thumbnail" %}{{ url }}{% endif %}{% endfor %}{% endcapture %}
+  <a href="/photos#P{{ photo.id }}" class="image-link">
+    <img src="{{ image_url }}" height="200" alt="{{ photo.meta.alt }}" loading="lazy" style="aspect-ratio: {{ photo.meta.ratio }};">
+  </a>
+{% endfor %}
+</div>
+
+<h3 class="monospace">Más Recientes</h3>
+<div class="photos">
+{% assign recent_photos = site.data.photos | reverse | slice: 0, 7 %}
+{% for photo in recent_photos %}
   {% capture image_url %}{% for url in photo.variants %}{% if url contains "/thumbnail" %}{{ url }}{% endif %}{% endfor %}{% endcapture %}
   <a href="/photos#P{{ photo.id }}" class="image-link">
     <img src="{{ image_url }}" height="200" alt="{{ photo.meta.alt }}" loading="lazy" style="aspect-ratio: {{ photo.meta.ratio }};">
