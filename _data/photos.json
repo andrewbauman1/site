@@ -170,5 +170,27 @@
       "https://imagedelivery.net/LQ_Z8HgbrQpAu3k88KR0Rg/4ddd9538-ba0c-430f-3f2b-dcb7c772af00/thumbnail"
     ],
     "requireSignedURLs": false
+  },
+  {
+    "uploaded": "2025-12-12T22:01:17.928Z",
+    "id": "2f1df275-e3ea-46e9-4ba7-d62654b03200",
+    "filename": "DSCF4870.jpeg",
+    "meta": {
+      "ratio": 1.3334214701216287,
+      "orientation": "landscape",
+      "caption": "Testing import",
+      "alt": "A newer image of my laptop reading 'Here's to the crazy ones, the misfits, the rebels'",
+      "featured": false,
+      "albums": [
+        "Life"
+      ],
+      "location": null,
+      "datetime": "2025-12-12T22:57:04.001Z"
+    },
+    "variants": [
+      "https://imagedelivery.net/LQ_Z8HgbrQpAu3k88KR0Rg/2f1df275-e3ea-46e9-4ba7-d62654b03200/public",
+      "https://imagedelivery.net/LQ_Z8HgbrQpAu3k88KR0Rg/2f1df275-e3ea-46e9-4ba7-d62654b03200/thumbnail"
+    ],
+    "requireSignedURLs": false
   }
 ]
