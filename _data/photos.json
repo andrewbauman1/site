@@ -8,7 +8,9 @@
       "caption": "A Message From Segovia, Spain",
       "alt": "A graffiti message that reads El mundo está muy oscuro, Ilumina tu parte.",
       "featured": true,
-      "albums": ["Street Art"]
+      "albums": [
+        "Street Art"
+      ]
     },
     "variants": [
       "https://imagedelivery.net/LQ_Z8HgbrQpAu3k88KR0Rg/d1e41146-0db3-40f7-2ad8-16e694ff9600/public",
@@ -24,7 +26,9 @@
       "caption": "Boston Financial District",
       "alt": "A View of the Boston Financial District's lights reflecting on the water at Night.",
       "featured": false,
-      "albums": ["Boston"]
+      "albums": [
+        "Boston"
+      ]
     },
     "variants": [
       "https://imagedelivery.net/LQ_Z8HgbrQpAu3k88KR0Rg/6bb138b3-7e2c-4805-73c6-f8d41b06f800/public",
@@ -40,7 +44,9 @@
       "caption": "Captree State Park, Long Island, NY",
       "alt": "A View of a bridge, reflecting lights on the Long Island Sound in New York",
       "featured": true,
-      "albums": ["New York"]
+      "albums": [
+        "New York"
+      ]
     },
     "variants": [
       "https://imagedelivery.net/LQ_Z8HgbrQpAu3k88KR0Rg/c896592f-3fb4-44ef-bace-bbf2f6ff5a00/public",
@@ -56,7 +62,9 @@
       "caption": "Brooklyn Bridge, NYC",
       "alt": "A view while walking on the Brooklyn Bridge in NYC",
       "featured": false,
-      "albums": ["New York"]
+      "albums": [
+        "New York"
+      ]
     },
     "variants": [
       "https://imagedelivery.net/LQ_Z8HgbrQpAu3k88KR0Rg/12115616-2227-4807-e74c-f4151bf33f00/public",
@@ -72,7 +80,9 @@
       "caption": "St. Mary's Street, Boston, MA ",
       "alt": "A view of the streetcar tracks at St. Mary's Street in Boston, MA",
       "featured": false,
-      "albums": ["Boston"]
+      "albums": [
+        "Boston"
+      ]
     },
     "variants": [
       "https://imagedelivery.net/LQ_Z8HgbrQpAu3k88KR0Rg/9acbbdaf-6ff6-4837-e0cd-910d8bd0b600/public",
@@ -89,7 +99,9 @@
       "ratio": "1",
       "orientation": "landscape",
       "featured": true,
-      "albums": ["Pets"]
+      "albums": [
+        "Pets"
+      ]
     },
     "requireSignedURLs": false,
     "variants": [
@@ -107,12 +119,35 @@
       "ratio": 1.5,
       "orientation": "landscape",
       "featured": false,
-      "albums": ["New York"]
+      "albums": [
+        "New York"
+      ]
     },
     "requireSignedURLs": false,
     "variants": [
       "https://imagedelivery.net/LQ_Z8HgbrQpAu3k88KR0Rg/a8017034-e63c-4bb9-aedf-dab4bd10d400/thumbnail",
       "https://imagedelivery.net/LQ_Z8HgbrQpAu3k88KR0Rg/a8017034-e63c-4bb9-aedf-dab4bd10d400/public"
     ]
+  },
+  {
+    "uploaded": "2025-12-12T21:45:50.217Z",
+    "id": "09f0d8a4-f107-4cae-a425-31370c4b0b00",
+    "filename": "DSCF4870.jpeg",
+    "meta": {
+      "ratio": 1.5,
+      "orientation": "landscape",
+      "caption": null,
+      "alt": "A photo showing my laptop reading 'Here's to the crazy ones\"",
+      "featured": true,
+      "albums": [
+        "Life"
+      ],
+      "location": null
+    },
+    "variants": [
+      "https://imagedelivery.net/LQ_Z8HgbrQpAu3k88KR0Rg/09f0d8a4-f107-4cae-a425-31370c4b0b00/public",
+      "https://imagedelivery.net/LQ_Z8HgbrQpAu3k88KR0Rg/09f0d8a4-f107-4cae-a425-31370c4b0b00/thumbnail"
+    ],
+    "requireSignedURLs": false
   }
 ]
