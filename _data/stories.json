@@ -1618,5 +1618,26 @@
       "https://imagedelivery.net/LQ_Z8HgbrQpAu3k88KR0Rg/e78d9b11-b7b9-43a5-97a1-9cc813398000/public",
       "https://imagedelivery.net/LQ_Z8HgbrQpAu3k88KR0Rg/e78d9b11-b7b9-43a5-97a1-9cc813398000/thumbnail"
     ]
+  },
+  {
+    "uploaded": "2026-01-06T02:58:23.762Z",
+    "id": "ff82393f8c4109fdb5d4176bb33fcdfe",
+    "filename": "PXL_20251128_174457435.LS.mp4",
+    "meta": {
+      "alt": "Groups of people walking around the Guggenheim Museum",
+      "caption": "Sonder [📍 NYC]",
+      "tags": [
+        "Highlight",
+        "Life",
+        "Travel"
+      ],
+      "url": "https://customer-62286aey9r4jhxc3.cloudflarestream.com/ff82393f8c4109fdb5d4176bb33fcdfe/manifest/video.m3u8",
+      "title": "Sonder [📍 NYC]"
+    },
+    "requireSignedURLs": false,
+    "thumbnail": "https://customer-62286aey9r4jhxc3.cloudflarestream.com/ff82393f8c4109fdb5d4176bb33fcdfe/thumbnails/thumbnail.jpg",
+    "playback": {
+      "hls": "https://customer-62286aey9r4jhxc3.cloudflarestream.com/ff82393f8c4109fdb5d4176bb33fcdfe/manifest/video.m3u8"
+    }
   }
 ]
