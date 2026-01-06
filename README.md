@@ -1,37 +1,50 @@
-# 🌍 drewsiph.dev
+# drewsiph.dev
+Source code for [drewsiph.dev](https://drewsiph.dev), a personal website built with Jekyll.
 
-Code for [drewsiph.dev](https://drewsiph.dev), a personal website built with Jekyll.
+## Philosophy
 
-## 🛠 Technology
+This site prioritizes durability and simplicity. Content is written in plain text, rendered to static HTML, and served with minimal JavaScript. The architecture favors web standards and long-term maintainability over trends.
 
-- 📄 HTML, 🎨 CSS, ⚡ Anti-JavaScript JavaScript
-- 📰 [RSS](https://en.wikipedia.org/wiki/RSS)
-- 🏗 [Jekyll](https://jekyllrb.com/)
-- 📖 [OpenStories](https://github.com/dddddddddzzzz/OpenStories), [`<open-stories>`](https://github.com/dddddddddzzzz/open-stories-element)
-- ❤️ [OpenHeart](https://github.com/dddddddddzzzz/OpenHeart), [`<open-heart>`](https://github.com/dddddddddzzzz/open-heart-element)
+## Technology
 
-## 🏗 Development
+- **Static Generation**: [Jekyll](https://jekyllrb.com/)
+- **Markup**: HTML, CSS
+- **Scripting**: JavaScript (used sparingly)
+- **Syndication**: RSS
+- **Custom Elements**: 
+  - [`<open-stories>`](https://github.com/dddddddddzzzz/open-stories-element) for narrative content
+  - [`<open-heart>`](https://github.com/dddddddddzzzz/open-heart-element) for interactions
 
-To run this site locally, ensure you have a Ruby environment configured.
+## Publishing Workflow
 
+Content is managed through a custom CMS backend that handles drafts, media uploads, and GitHub-based publishing.
+
+- **Backend**: [site-CMS](https://github.com/andrewbauman1/site-CMS) - Next.js application for content management
+- **Deployment**: GitHub Actions automatically builds and deploys changes
+- **Media**: Cloudflare Images and Stream for asset hosting
+
+## Development
+
+Requires Ruby. Run locally with:
 ```sh
-$ ./start
+./start
 ```
 
-## 🙌 Attribution
+## Attribution
 
-This project is based on the original work of [Mu-An Chiou](https://muan.co/). Modifications and customizations have been made to fit the needs of drewsiph.dev.
+Based on [Mu-An Chiou's](https://muan.co/) original work, modified for custom content and workflows.
 
-## 📜 License
+## License
 
-The following directories and their contents are **copyright-protected**. You may not reuse anything therein without explicit permission:
+### Content (All Rights Reserved)
 
-```
-📂 _data/
-📝 _posts/
-📖 _stories/
-🗒 _notes/
-🖼 images/
-```
+Original written and visual content is not licensed for reuse:
+- `_data/` - Site data and metadata
+- `_posts/` - Blog posts and articles  
+- `_stories/` - Multi-media narrative content
+- `_notes/` - Field notes and observations
+- `images/` - Photography and graphics
 
-All other directories and files are **MIT Licensed** (where applicable).
+### Code (MIT License)
+
+Jekyll configuration, templates, layouts, and build scripts are available under the MIT License. See `LICENSE` file for details.
