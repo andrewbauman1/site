@@ -193,5 +193,28 @@
       "https://imagedelivery.net/LQ_Z8HgbrQpAu3k88KR0Rg/24111531-9608-4b88-ddfe-db376f164700/thumbnail"
     ],
     "requireSignedURLs": false
+  },
+  {
+    "uploaded": "2026-01-06T03:14:04.273Z",
+    "id": "e0243bf6-cd7a-4ac8-70f1-1d200a351400",
+    "filename": "PXL_20250901_234354080-EDIT.jpg",
+    "meta": {
+      "ratio": 1.7730496453900708,
+      "orientation": "landscape",
+      "caption": "Boston Sunsets 🌅",
+      "alt": "A view of the sunset in Chestnut Hill, MA",
+      "featured": true,
+      "albums": [
+        "Life",
+        "Boston"
+      ],
+      "location": "Chestnut Hill, MA",
+      "datetime": "2026-01-06T03:12:46.556Z"
+    },
+    "variants": [
+      "https://imagedelivery.net/LQ_Z8HgbrQpAu3k88KR0Rg/e0243bf6-cd7a-4ac8-70f1-1d200a351400/public",
+      "https://imagedelivery.net/LQ_Z8HgbrQpAu3k88KR0Rg/e0243bf6-cd7a-4ac8-70f1-1d200a351400/thumbnail"
+    ],
+    "requireSignedURLs": false
   }
 ]
