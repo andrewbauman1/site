@@ -171,5 +171,27 @@
       "https://imagedelivery.net/LQ_Z8HgbrQpAu3k88KR0Rg/2f1df275-e3ea-46e9-4ba7-d62654b03200/thumbnail"
     ],
     "requireSignedURLs": false
+  },
+  {
+    "uploaded": "2026-01-06T03:14:03.381Z",
+    "id": "24111531-9608-4b88-ddfe-db376f164700",
+    "filename": "PXL_20250901_152716274-EDIT.jpg",
+    "meta": {
+      "ratio": 1.7730496453900708,
+      "orientation": "landscape",
+      "caption": "Tchotchkes at the ICA",
+      "alt": "Various sculptures at ICA Boston",
+      "featured": true,
+      "albums": [
+        "Boston"
+      ],
+      "location": "ICA, Boston, MA",
+      "datetime": "2025-09-01T15:12:00.000Z"
+    },
+    "variants": [
+      "https://imagedelivery.net/LQ_Z8HgbrQpAu3k88KR0Rg/24111531-9608-4b88-ddfe-db376f164700/public",
+      "https://imagedelivery.net/LQ_Z8HgbrQpAu3k88KR0Rg/24111531-9608-4b88-ddfe-db376f164700/thumbnail"
+    ],
+    "requireSignedURLs": false
   }
 ]
