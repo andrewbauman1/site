@@ -1639,5 +1639,23 @@
     "playback": {
       "hls": "https://customer-62286aey9r4jhxc3.cloudflarestream.com/ff82393f8c4109fdb5d4176bb33fcdfe/manifest/video.m3u8"
     }
+  },
+  {
+    "uploaded": "2026-01-11T19:05:45.320Z",
+    "id": "250b958a-41bf-4a13-7e52-d4bdbd16c300",
+    "filename": "1000010152.jpg",
+    "meta": {
+      "alt": "A selfie of me taken in a shop somewhere in the Boston Seaport during a rainy January afternoon.",
+      "caption": "Out and about ⬜",
+      "tags": [
+        "Life",
+        "Highlight"
+      ]
+    },
+    "requireSignedURLs": false,
+    "variants": [
+      "https://imagedelivery.net/LQ_Z8HgbrQpAu3k88KR0Rg/250b958a-41bf-4a13-7e52-d4bdbd16c300/public",
+      "https://imagedelivery.net/LQ_Z8HgbrQpAu3k88KR0Rg/250b958a-41bf-4a13-7e52-d4bdbd16c300/thumbnail"
+    ]
   }
 ]
