@@ -19,9 +19,9 @@
     <link rel="icon" href="/assets/fav.svg?v1" type="image/svg+xml" sizes="24x24">
     <!--link rel="icon" href="/assets/fav.png" type="image/png" sizes="96x96"-->
     <link href="https://fonts.googleapis.com/css2?family=Anuphan&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Anta&family=Atomic+Age&family=Permanent+Marker&family=VT323&display=swap" rel="stylesheet">    <link href="/assets/new.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Anta&family=Atomic+Age&family=Permanent+Marker&family=VT323&display=swap" rel="stylesheet">    <link href="/assets/new.css?v={{ site.time | date: '%s' }}" rel="stylesheet" type="text/css">
     {% if page.collection == "posts" %}
-      <link href="/assets/syntax.css" rel="stylesheet" type="text/css">
+      <link href="/assets/syntax.css?v={{ site.time | date: '%s' }}" rel="stylesheet" type="text/css">
     {% endif %}
     {% if page.title %}
       <title>{{ page.title }}{% unless page.root %} @ {{ site.title }}{% endunless %}</title>
@@ -207,10 +207,10 @@
         };
       })();
     </script>
-    <script type="module" src="/assets/root.js"></script>
+    <script type="module" src="/assets/root.js?v={{ site.time | date: '%s' }}"></script>
     <script type="module" src="https://unpkg.com/open-stories-element@latest"></script>
     {% endif %}
-    <script type="module" src="/assets/site.js"></script>
+    <script type="module" src="/assets/site.js?v={{ site.time | date: '%s' }}"></script>
     <script>
       // Theme toggle functionality
       const themeToggle = document.getElementById('theme-toggle');

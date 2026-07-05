@@ -53,3 +53,8 @@ defaults:
       type: "stories"
     values:
       sitemap: false
+  - scope:
+      path: ""
+      type: "notes"
+    values:
+      sitemap: false
