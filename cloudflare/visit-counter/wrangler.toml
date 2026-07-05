@@ -1,0 +1,10 @@
+name = "visit-counter"
+main = "worker.js"
+compatibility_date = "2026-07-05"
+
+# After running:
+#   wrangler kv namespace create VISIT_COUNTER
+# paste the returned id below.
+kv_namespaces = [
+  { binding = "VISIT_COUNTER", id = "0d68c5151b044d4d96c5ac890caf6314" }
+]

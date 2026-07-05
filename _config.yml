@@ -43,3 +43,13 @@ commonmark:
   options: ["UNSAFE", "HARDBREAKS"]
   extensions: ["strikethrough", "autolink", "table"]
 recent_date: "2026/2/4"
+plugins:
+  - jekyll-sitemap
+exclude:
+  - cloudflare
+defaults:
+  - scope:
+      path: ""
+      type: "stories"
+    values:
+      sitemap: false

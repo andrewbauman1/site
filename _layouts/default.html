@@ -9,18 +9,17 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="text/html; charset=utf-8" http-equiv="content-type">
     <link rel="alternate" type="application/rss+xml" href="/notes.xml">
+    {% if page.root %}
+    <link rel="alternate" hreflang="en" href="https://drewsiph.dev/">
+    <link rel="alternate" hreflang="es" href="https://drewsiph.dev/es-ES/">
+    <link rel="alternate" hreflang="x-default" href="https://drewsiph.dev/">
+    {% endif %}
     <link rel="apple-touch-icon" href="https://drewsiph.dev/assets/apple-touch-icon.png?v1">
     <link rel="icon" href="/assets/apple-touch-icon.png?v1" type="image/png" sizes="500x500">
     <link rel="icon" href="/assets/fav.svg?v1" type="image/svg+xml" sizes="24x24">
     <!--link rel="icon" href="/assets/fav.png" type="image/png" sizes="96x96"-->
     <link href="https://fonts.googleapis.com/css2?family=Anuphan&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Anta&family=Atomic+Age&family=Permanent+Marker&display=swap" rel="stylesheet">    <link href="/assets/new.css" rel="stylesheet" type="text/css">
-    <script>
-    function cb(response) {
-        document.getElementById('visits').innerText = response.value;
-    }
-    </script>
-    <script async src="https://api.countapi.xyz/hit/mysite.com/visits?callback=cb"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Anta&family=Atomic+Age&family=Permanent+Marker&family=VT323&display=swap" rel="stylesheet">    <link href="/assets/new.css" rel="stylesheet" type="text/css">
     {% if page.collection == "posts" %}
       <link href="/assets/syntax.css" rel="stylesheet" type="text/css">
     {% endif %}
@@ -150,8 +149,25 @@
         <hr class="inline-hr">
         <a href="https://github.com/andrewbauman1/site">{{ site.i18n[lang].source }}</a>
       </nav>
-      <div id="visits"></div>
+      <div class="counter-widget">
+        <span class="counter-label">Visitors</span>
+        <span id="visits" class="counter-digits" aria-live="polite">000000</span>
+      </div>
     </footer>
+
+    <script>
+      (function () {
+        var el = document.getElementById('visits');
+        if (!el) return;
+        fetch('https://visit-counter.andrewbauman001.workers.dev/hit?id=visits')
+          .then(function (r) { return r.json(); })
+          .then(function (data) {
+            var digits = String(data.value).padStart(6, '0');
+            el.textContent = digits;
+          })
+          .catch(function () {});
+      })();
+    </script>
 
     {% if page.root %}
     <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
