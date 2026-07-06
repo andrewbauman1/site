@@ -2,17 +2,23 @@
 ---
 
 :root {
-  --backgroundColor: #FEFDFB;
+  // Parchment cream; 14.85:1 contrast with textColor (AAA).
+  --backgroundColor: #F2EFE9;
   --textColor: #1C1C1C;
   --secondaryTextColor: #4F4F4F;
-  --mutedTextColor: #6E7B75;
-  --subtleBackgroundColor: #E4E7E2;
+  // Tuned for 4.5:1 WCAG AA against bg + chip fills.
+  --mutedTextColor: #4C5951;
+  // Darkened so chips/pills/cards stay distinct against the darker bg.
+  --subtleBackgroundColor: #C9CFC7;
   --heartedBackgroundColor: #F6E8E2;
   --selectionBackgroundColor: #D6D9EB;
-  --linkColor: #FF8C6B;
-  --activeColor: #BA5A89;
-  --borderColor: #E0E0E0;
-  --hrColor: #D8D8D8;
+  // Deeper rust, same coral family; 4.85:1 contrast.
+  --linkColor: #B04723;
+  // 4.98:1 contrast, same amber family.
+  --activeColor: #A44E0A;
+  // Darkened so borders stay visible against the darker bg.
+  --borderColor: #C5C5BF;
+  --hrColor: #C5C5BF;
   --langBackgroundColor: #F0F0EE;
   --langShadowColor: rgba(0,0,0,0.08);
   --logoColor: #333333;
@@ -21,8 +27,9 @@
   --gradient-primary: linear-gradient(135deg, #FFB74D 0%, #FF8C6B 50%, #BA5AD3 100%);
   --gradient-secondary: linear-gradient(90deg, #FF8C6B 0%, #9370DB 100%);
 
-  --sansserif: 'outfit', system-ui, sans-serif;
-  --monospace: 'atomic-age-regular', ui-monospace, "SFMono-Regular", "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  --sansserif: 'Schibsted Grotesk', system-ui, sans-serif;
+  --serif: 'Fraunces', serif;
+  --monospace: 'IBM Plex Mono', ui-monospace, "SFMono-Regular", "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -36,7 +43,7 @@
      --mutedTextColor: #9DA8A3;           /* Desaturated green-gray */
 
      --linkColor: #85b6a6;         /* Soft rust for brand pop */
-     --activeColor: #BA5A49;              /* Deeper rust for hover/focus */
+     --activeColor: #e8a06e;              /* Warm amber for hover/focus */
      --heartedBackgroundColor: #884A3D;   /* Earthy emotional tone */
 
      --selectionBackgroundColor: #3A5E5A; /* Muted green-blue — ties into bg */
@@ -57,7 +64,7 @@
   --secondaryTextColor: #C5BFB8;
   --mutedTextColor: #9DA8A3;
   --linkColor: #85b6a6;
-  --activeColor: #BA5A49;
+  --activeColor: #e8a06e;
   --heartedBackgroundColor: #884A3D;
   --selectionBackgroundColor: #3A5E5A;
   --borderColor: #3A4B49;
@@ -73,7 +80,7 @@ body {
   line-height: 1.5em;
   padding: 0 4em;
   margin: 0;
-  font-size: 18px;
+  font-size: 16px;
   word-wrap: break-word;
   position: relative;
   overflow-x: hidden;
@@ -86,48 +93,69 @@ body {
 }
 
 /* Gradient blob element */
+:root {
+  // Set on mousemove (site.js); kept separate from `transform` so it
+  // composes with the floatBlob keyframes instead of overriding them.
+  --blob-mx: 0px;
+  --blob-my: 0px;
+}
+
 body::before {
   content: '';
   position: fixed;
-  top: 10%;
-  right: -10%;
-  width: 60vw;
-  height: 60vw;
-  max-width: 800px;
-  max-height: 800px;
+  top: -15%;
+  right: -20%;
+  width: 75vw;
+  height: 75vw;
+  max-width: 1100px;
+  max-height: 1100px;
   border-radius: 50%;
   background: radial-gradient(circle at 30% 40%,
-    rgba(255, 183, 77, 0.4) 0%,
-    rgba(255, 140, 107, 0.35) 25%,
-    rgba(186, 85, 211, 0.3) 50%,
-    rgba(147, 112, 219, 0.25) 75%,
+    rgba(255, 183, 77, 0.55) 0%,
+    rgba(255, 140, 107, 0.45) 30%,
+    rgba(186, 90, 211, 0.32) 55%,
+    rgba(133, 182, 166, 0.16) 75%,
     transparent 100%
   );
-  filter: blur(60px);
+  filter: blur(55px);
   z-index: -1;
   pointer-events: none;
-  animation: floatBlob 20s ease-in-out infinite;
+  animation: floatBlob 18s ease-in-out infinite;
+  translate: var(--blob-mx) var(--blob-my);
+  transition: translate 0.4s ease-out;
+  will-change: transform, translate;
 }
 
 @keyframes floatBlob {
   0%, 100% {
     transform: translate(0, 0) scale(1);
   }
-  33% {
-    transform: translate(-5%, 10%) scale(1.1);
+  25% {
+    transform: translate(-20%, 16%) scale(1.25);
   }
-  66% {
-    transform: translate(5%, -5%) scale(0.95);
+  50% {
+    transform: translate(-6%, -14%) scale(0.85);
+  }
+  75% {
+    transform: translate(16%, 10%) scale(1.15);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body::before {
+    animation: none;
+    transition: none;
+    translate: none;
   }
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) body::before {
     background: radial-gradient(circle at 30% 40%,
-      rgba(255, 183, 77, 0.15) 0%,
-      rgba(255, 140, 107, 0.12) 25%,
-      rgba(186, 85, 211, 0.1) 50%,
-      rgba(147, 112, 219, 0.08) 75%,
+      rgba(255, 183, 77, 0.55) 0%,
+      rgba(255, 140, 107, 0.45) 30%,
+      rgba(186, 90, 211, 0.32) 55%,
+      rgba(133, 182, 166, 0.16) 75%,
       transparent 100%
     );
   }
@@ -135,10 +163,10 @@ body::before {
 
 :root[data-theme="dark"] body::before {
   background: radial-gradient(circle at 30% 40%,
-    rgba(255, 183, 77, 0.15) 0%,
-    rgba(255, 140, 107, 0.12) 25%,
-    rgba(186, 85, 211, 0.1) 50%,
-    rgba(147, 112, 219, 0.08) 75%,
+    rgba(255, 183, 77, 0.55) 0%,
+    rgba(255, 140, 107, 0.45) 30%,
+    rgba(186, 90, 211, 0.32) 55%,
+    rgba(133, 182, 166, 0.16) 75%,
     transparent 100%
   );
 }
@@ -185,13 +213,19 @@ a, u {
   background: var(--selectionBackgroundColor);
 }
 
-/* Vertical text element */
+/* Vertical sidebar text. Uses native writing-mode (not a rotate+translate
+   hack) so position stays fixed regardless of the label's text length. */
 .vertical-text {
   position: fixed;
   left: 1.5em;
-  top: 50%;
-  transform: translateY(-50%) rotate(-90deg);
-  transform-origin: center;
+  top: 0;
+  bottom: 0;
+  width: 1.4em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
   font-size: 0.7rem;
   font-weight: 600;
   letter-spacing: 0.2em;
@@ -229,6 +263,24 @@ main {
   p, ul, ol {
     margin: 1.5em 0;
   }
+}
+
+/* Homepage-only: widen main past the sitewide 42em column (matches the
+   reference layout) and switch to overflow:visible so the photos' hover
+   rim-glow isn't clipped. padding-left keeps content clear of the fixed
+   .vertical-text sidebar label now that margin:auto centering no longer
+   provides that spacing. */
+body[data-page-type=""]:not(.post-body) main {
+  overflow: visible;
+  max-width: 70em;
+  padding-left: 2.5em;
+}
+
+/* Match header to main's left-hugging layout so logo/h1/status line
+   align with the lede paragraph beneath them. */
+body[data-page-type=""]:not(.post-body) header {
+  margin: 0;
+  padding-left: 2.5em;
 }
 
 section {
@@ -331,28 +383,15 @@ h2 {
   letter-spacing: -0.03em;
 }
 
-/* Gradient text effect for root page heading */
+/* Root page heading: plain-text serif treatment (gradient text tried and rejected) */
 body[data-page-type=""]:not(.post-body) .h1 {
-  background: var(--gradient-primary);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) body[data-page-type=""]:not(.post-body) .h1 {
-    background: var(--gradient-secondary);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-}
-
-:root[data-theme="dark"] body[data-page-type=""]:not(.post-body) .h1 {
-  background: var(--gradient-secondary);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  font-family: var(--serif);
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-size: clamp(2.4em, 6vw, 4em);
+  line-height: 1.05;
+  letter-spacing: 0;
+  color: var(--textColor);
 }
 
 .normal-heading {
@@ -609,10 +648,10 @@ article {
       outline: 2px solid rgba(255, 255, 255, 0.3); /* Subtle focus outline */
     }
 
-    /* Bullet before each link */
+    /* Matches inactive link text color for legible contrast (was --borderColor, ~1.5:1). */
     &:before {
       content: "○";
-      color: var(--borderColor);
+      color: var(--mutedTextColor);
       padding-right: 8px; /* Reduced padding */
       transition: color 0.3s ease-in-out;
     }
@@ -681,7 +720,10 @@ time.monospace {
   flex-wrap: nowrap;
   overflow: auto;
   align-items: center;
-  margin-bottom: 1em;
+  /* Padding gives the hover rim-glow room to render past overflow:auto;
+     negative margins cancel the padding back out so layout doesn't shift. */
+  padding: 48px;
+  margin: -48px -48px calc(1em - 48px);
 
   .image-link {
     flex-shrink: 0;
@@ -873,13 +915,8 @@ figcaption {
   }
 }
 
-// This ensures that
-// 1. screens that are too short
-// 2. screens that are not tall enough to display the full width of a 3:2 image
-//    at height: (100v - 6em) height
-// don't get the option to use horizontal scroll.
-
-// https://github.com/web-platform-tests/wpt/pull/34865
+// Hide horizontal-scroll option on screens too short for a 3:2 image at
+// (100vh - 6em) height. https://github.com/web-platform-tests/wpt/pull/34865
 // @media (max-height: 540px), (max-width: calc((100vh - 6em) * 1.5)) {
 @media (max-height: 540px), (max-width: calc(100vh * 1.4)) {
     body {
@@ -1064,42 +1101,29 @@ nav {
   margin: .6em 0;
 }
 
-/* Internal Lab styling */
-.internal-lab {
-  padding: 1em;
-  border-radius: 0.5em;
-  background: linear-gradient(135deg, rgba(255, 183, 77, 0.05) 0%, rgba(186, 85, 211, 0.05) 100%);
+/* Internal Lab: same nav-group/pill pattern as Pages + Get in touch,
+   wrapped in a subtle gradient panel to set it apart as a utility block. */
+.nav-group.internal-lab {
+  padding: 1em 1.2em 1.2em;
+  border-radius: 12px;
   border: 1px solid var(--borderColor);
-  position: relative;
+  background: linear-gradient(135deg, rgba(255, 183, 77, 0.05) 0%, rgba(186, 85, 211, 0.05) 100%);
+}
 
-  .lab-label {
-    font-weight: 600;
-    color: var(--textColor);
-  }
-
-  .lab-note {
-    font-size: 0.7em;
-    color: var(--mutedTextColor);
-    font-family: var(--monospace);
-  }
-
-  a {
-    color: var(--linkColor);
-    transition: color 0.2s ease;
-
-    &:hover {
-      color: var(--activeColor);
-    }
-  }
+.nav-label .lab-note {
+  text-transform: none;
+  letter-spacing: normal;
+  font-weight: 400;
+  color: var(--mutedTextColor);
 }
 
 @media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .internal-lab {
+  :root:not([data-theme="light"]) .nav-group.internal-lab {
     background: linear-gradient(135deg, rgba(255, 183, 77, 0.03) 0%, rgba(186, 85, 211, 0.03) 100%);
   }
 }
 
-:root[data-theme="dark"] .internal-lab {
+:root[data-theme="dark"] .nav-group.internal-lab {
   background: linear-gradient(135deg, rgba(255, 183, 77, 0.03) 0%, rgba(186, 85, 211, 0.03) 100%);
 }
 
@@ -1125,6 +1149,20 @@ nav {
     border-radius: 2em;
   }
 }
+
+/* Sun/moon sit under the thumb's two resting spots; the thumb (later in
+   DOM) paints over whichever one is active, leaving the other peeking out. */
+.toggle-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 11px;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.toggle-icon-sun { left: 6px; }
+.toggle-icon-moon { right: 6px; }
 
 .toggle-track {
   display: block;
@@ -1342,15 +1380,33 @@ label:has(input:not(:checked)) ~ label:has(input:not(:checked)) ~ label:has(inpu
   }
 }
 
+/* Notes-archive cards: same panel treatment as field-note/Internal Lab boxes. */
 .note {
-  padding: 1.5rem;
-  border-radius: 0.75em;
-  background: var(--noteBackground);
-  border: 1px solid var(--noteBorderColor);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  box-shadow: var(--noteShadow);
+  padding: 1em 1.2em 1.2em;
+  border-radius: 12px;
+  border: 1px solid var(--borderColor);
+  background: linear-gradient(135deg, rgba(255, 183, 77, 0.05) 0%, rgba(186, 85, 211, 0.05) 100%);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   color: var(--textColor);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .note {
+    background: linear-gradient(135deg, rgba(255, 183, 77, 0.03) 0%, rgba(186, 85, 211, 0.03) 100%);
+  }
+}
+
+:root[data-theme="dark"] .note {
+  background: linear-gradient(135deg, rgba(255, 183, 77, 0.03) 0%, rgba(186, 85, 211, 0.03) 100%);
+}
+
+.note .note-tag {
+  border-radius: 999px;
+  background: var(--subtleBackgroundColor);
+  color: var(--mutedTextColor);
+  font-size: 0.7em;
+  padding: 0.35em 0.9em;
 }
 
 /* Optional emphasis label inside */
@@ -1360,18 +1416,6 @@ label:has(input:not(:checked)) ~ label:has(input:not(:checked)) ~ label:has(inpu
   margin-bottom: 0.5em;
   color: var(--linkColor);
 }
-
-/* Note Content
-.note {
-  padding: 1.5rem;
- border-radius: 0.75em;
- background: rgba(255, 255, 255, 0.06); /* more subtle transparency
- border: 1px solid rgba(255, 255, 255, 0.12);
- backdrop-filter: blur(8px);
- -webkit-backdrop-filter: blur(8px);
- box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
- color: var(--textColor);
-} */
 
 .general-actions {
   font-size: 0.9rem;
@@ -1431,4 +1475,392 @@ label:has(input:not(:checked)) ~ label:has(input:not(:checked)) ~ label:has(inpu
   border-color: #7a7a7a #2b2b2b #2b2b2b #7a7a7a;
   border-radius: 2px;
   box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.9);
+}
+
+/* Homepage hero redesign ("Editorial Warm") — root pages only, scoped to
+   body[data-page-type=""]:not(.post-body) (index.html / index-es.html). */
+
+/* Ghost logo: faint oversized echo of the mark behind the hero. */
+.logo-ghost {
+  position: fixed;
+  width: 70vw;
+  max-width: 900px;
+  height: auto;
+  bottom: -14%;
+  left: -10%;
+  opacity: 0.08;
+  filter: grayscale(1);
+  z-index: -1;
+  pointer-events: none;
+  transform: rotate(-8deg);
+  animation: ghostDrift 40s ease-in-out infinite;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .logo-ghost {
+    opacity: 0.05;
+  }
+}
+
+:root[data-theme="dark"] .logo-ghost {
+  opacity: 0.05;
+}
+@keyframes ghostDrift {
+  0%, 100% { transform: rotate(-8deg) translateY(0); }
+  50% { transform: rotate(-8deg) translateY(-2%); }
+}
+@media (max-width: 768px) {
+  .logo-ghost { width: 120vw; left: -25%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .logo-ghost { animation: none; }
+}
+
+/* Scroll progress bar */
+.progress-bar {
+  position: fixed;
+  top: 0; left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, #FFB74D, #FF8C6B, #BA5AD3);
+  z-index: 1002;
+  transition: width 0.1s linear;
+}
+
+/* Status line ("eyebrow") + pulsing status dot */
+body[data-page-type=""]:not(.post-body) .status-line {
+  display: flex;
+  align-items: center;
+  gap: 0.7em;
+  font-family: var(--monospace);
+  font-size: 0.85rem;
+  color: var(--mutedTextColor);
+  /* Prevents the pulsing dot's box-shadow from clipping against header's overflow:hidden. */
+  padding-left: 6px;
+}
+.status-dot {
+  display: inline-block;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: var(--linkColor);
+  box-shadow: 0 0 0 0 rgba(133,182,166,0.6);
+  animation: statusPulse 2.4s ease-in-out infinite;
+}
+@keyframes statusPulse {
+  0% { box-shadow: 0 0 0 0 rgba(133,182,166,0.5); }
+  70% { box-shadow: 0 0 0 6px rgba(133,182,166,0); }
+  100% { box-shadow: 0 0 0 0 rgba(133,182,166,0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .status-dot { animation: none; }
+}
+
+/* Lede: the intro paragraphs directly under the name/h1, before the nav pills */
+body[data-page-type=""]:not(.post-body) main > p.lede {
+  font-size: 1.15em;
+  color: var(--secondaryTextColor);
+  max-width: 620px;
+}
+body[data-page-type=""]:not(.post-body) main > p.lede:first-of-type {
+  margin-top: 0.9em;
+}
+
+/* Big root-page logo: draw-in reveal on load. Hover uses the sitewide
+   .logo:hover rule unchanged (a drop-shadow hover glow was tried and
+   removed — it revealed the image's rectangular bounding box). */
+body[data-page-type=""]:not(.post-body) .logo {
+  /* No static clip-path/transform: JS clears `animation` after the reveal
+     so hover can take over without a stuck clipped/scaled resting state. */
+  cursor: pointer;
+  animation: logoReveal 1.1s cubic-bezier(.2,.8,.2,1) forwards;
+}
+@keyframes logoReveal {
+  0% { clip-path: inset(0 100% 0 0); transform: scale(0.92); }
+  65% { clip-path: inset(0 0% 0 0); transform: scale(1.05); }
+  100% { clip-path: inset(0 0% 0 0); transform: scale(1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  body[data-page-type=""]:not(.post-body) .logo {
+    animation: none;
+    clip-path: none;
+    transform: none;
+  }
+}
+
+/* Nav pill groups (Pages / Get in touch) */
+.nav-group { margin-top: 1.4em; }
+.nav-label {
+  font-family: var(--monospace);
+  font-size: 0.65em;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--mutedTextColor);
+  margin-bottom: 0.6em;
+  display: block;
+}
+nav.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6em;
+  margin: 0;
+}
+nav.links a {
+  font-family: var(--monospace);
+  font-size: 0.82em;
+  line-height: 1;
+  color: var(--textColor);
+  text-decoration: none;
+  padding: 0.6em 1.1em;
+  border: 1px solid var(--borderColor);
+  border-radius: 999px;
+  background: rgba(255,255,255,0.02);
+  backdrop-filter: blur(6px);
+  transition: border-color 0.3s ease, color 0.3s ease, background 0.3s ease;
+}
+nav.links a:hover {
+  border-color: var(--activeColor);
+  color: var(--activeColor);
+  background: rgba(232, 160, 110, 0.08);
+}
+/* Keep symmetric pill padding regardless of the trailing external-link icon. */
+nav.links a[href^='http'] {
+  padding-right: 1.1em;
+}
+/* Swap the sitewide "┓" external-link mark (tuned for inline prose) for a
+   plain arrow, since the small mark reads as a stray glyph inside a pill. */
+nav.links a[href^='http']::after {
+  content: ' \2197' / ', external';
+  font-family: inherit;
+  font-size: 1em;
+  line-height: inherit;
+  position: static;
+  margin-top: 0;
+}
+nav.links.contact a {
+  border-color: rgba(232, 160, 110, 0.25);
+  background: rgba(232, 160, 110, 0.06);
+}
+
+/* Section rhythm + scroll reveal. html.js guard: sections render normally
+   if the reveal script never runs (JS disabled/broken). */
+html.js body[data-page-type=""]:not(.post-body) .section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+html.js body[data-page-type=""]:not(.post-body) .section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  html.js body[data-page-type=""]:not(.post-body) .section {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+.section.notes-section { margin-top: 2.5em; }
+.section.photos-section { margin-top: 4.5em; }
+.section.posts { margin-top: 5.5em; }
+.section-head {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 1em;
+  border-bottom: 1px solid var(--borderColor);
+  padding-bottom: 0.6em;
+  margin-bottom: 1.4em;
+}
+.section-head h2 {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 1.5em;
+  margin: 0;
+}
+.section-head .styled-link { font-size: 0.75em; }
+
+/* Stories: subtle lift on hover, layered on top of the existing open-stories states */
+open-stories::part(button):hover {
+  transform: scale(1.06) translateY(-3px);
+}
+@media (prefers-reduced-motion: reduce) {
+  open-stories::part(button):hover { transform: none; }
+}
+
+/* Photos: rounded thumbnails + rim-glow on hover */
+body[data-page-type=""]:not(.post-body) .photos img {
+  border-radius: 10px;
+  filter: saturate(0.92);
+  transition: transform 0.6s cubic-bezier(.2,.8,.2,1), filter 0.4s ease, box-shadow 0.5s ease;
+  cursor: pointer;
+}
+body[data-page-type=""]:not(.post-body) .photos img:hover {
+  transform: scale(1.03);
+  filter: saturate(1.1);
+  box-shadow:
+    0 0 22px rgba(255, 140, 107, 0.35),
+    0 0 42px rgba(186, 90, 211, 0.22);
+}
+
+/* Field note card (homepage's most-recent note); matches Internal Lab panel. */
+.field-note {
+  border: 1px solid var(--borderColor);
+  border-radius: 12px;
+  padding: 1em 1.2em 1.2em;
+  background: linear-gradient(135deg, rgba(255, 183, 77, 0.05) 0%, rgba(186, 85, 211, 0.05) 100%);
+  backdrop-filter: blur(6px);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .field-note {
+    background: linear-gradient(135deg, rgba(255, 183, 77, 0.03) 0%, rgba(186, 85, 211, 0.03) 100%);
+  }
+}
+
+:root[data-theme="dark"] .field-note {
+  background: linear-gradient(135deg, rgba(255, 183, 77, 0.03) 0%, rgba(186, 85, 211, 0.03) 100%);
+}
+// Applies to both the homepage field-note card and /notes archive cards
+// (same .note > .general-actions > h2 > a structure); overrides the
+// lower-specificity `.general-actions a { color: inherit }`.
+.note .general-actions h2 a {
+  color: var(--activeColor);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+// margin-right: auto on the date pushes share/like to the far right as a group.
+.note .general-actions {
+  gap: 0.5em;
+
+  > h2 {
+    margin: 0;
+    margin-right: auto;
+  }
+}
+
+.note .general-actions open-heart,
+.note .share-button {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.75em;
+  border: 1px solid var(--borderColor);
+  border-radius: 999px;
+  padding: 0.35em 0.9em;
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+.note .general-actions open-heart:hover,
+.note .share-button:hover {
+  border-color: var(--activeColor);
+}
+
+/* Testimonial cards: reuse the .notes/.note panel; these two rules just
+   adapt header/quote for a name+quote layout instead of date+buttons. */
+.note .general-actions h2 {
+  color: var(--activeColor);
+  font-weight: 600;
+}
+
+.note blockquote {
+  box-shadow: none;
+  padding: 0;
+  margin: 0.6em 0 0;
+  font-style: italic;
+
+  &::before {
+    display: none;
+  }
+}
+
+/* Blogroll cards: same .notes/.note panel reuse; lang code as a pill,
+   matching the Field Notes share/like pills. */
+.note .general-actions .lang-pill {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.7em;
+  color: var(--mutedTextColor);
+  border: 1px solid var(--borderColor);
+  border-radius: 999px;
+  padding: 0.35em 0.7em;
+}
+
+/* Recent posts list */
+body[data-page-type=""]:not(.post-body) .terminal .line {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.4em 1em;
+  padding: 1em 0;
+  border-bottom: 1px solid var(--borderColor);
+  margin-bottom: 0;
+  transition: padding-left 0.3s ease;
+}
+body[data-page-type=""]:not(.post-body) .terminal .line:last-child { border-bottom: none; }
+body[data-page-type=""]:not(.post-body) .terminal .line:hover { padding-left: 0.4em; }
+body[data-page-type=""]:not(.post-body) .terminal .line a {
+  font-family: var(--serif);
+  font-size: 1.15em;
+  color: var(--textColor);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+body[data-page-type=""]:not(.post-body) .terminal .line:hover a { color: var(--activeColor); }
+body[data-page-type=""]:not(.post-body) .terminal .line time {
+  font-size: 0.75em;
+  color: var(--mutedTextColor);
+  white-space: nowrap;
+}
+
+/* Footer: single row (nav left, counter-widget right) with a plain
+   border-top instead of the sitewide glowing .hr (hidden below).
+   padding-left uses rem, not em, so it stays 2.5x root font-size despite
+   this rule's smaller 0.8em font-size. */
+body[data-page-type=""]:not(.post-body) footer {
+  max-width: none;
+  margin: 6em 0 0;
+  padding: 2.5em 0 4em 2.5rem;
+  border-top: 1px solid var(--borderColor);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--monospace);
+  font-size: 0.8em;
+  color: var(--mutedTextColor);
+
+  .hr {
+    display: none;
+  }
+
+  /* Counter widget: one plain black pill instead of the sitewide bezeled LED readout. */
+  .counter-widget {
+    margin-top: 0;
+    background: #000;
+    padding: 0.4em 0.9em;
+    border-radius: 6px;
+    gap: 0.6em;
+  }
+
+  .counter-label {
+    font-family: var(--monospace);
+    font-size: 1em;
+    text-transform: none;
+    letter-spacing: 0;
+    color: var(--mutedTextColor);
+  }
+
+  .counter-digits {
+    font-family: var(--monospace);
+    font-size: 1em;
+    line-height: normal;
+    letter-spacing: 0.1em;
+    padding: 0;
+    background: transparent;
+    color: #39ff14;
+    text-shadow: none;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
 }

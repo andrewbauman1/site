@@ -32,7 +32,6 @@ const statusEl = document.querySelector('[data-status-loading]')
 
 ;(async () => {
   try {
-    statusEl.hidden = false
     const s = await (await fetch('https://raw.githubusercontent.com/andrewbauman1/resources/refs/heads/main/status.txt')).text()
     if (s.trim() !== '') {
       const [datetime, text] = s.split('\n')
@@ -40,9 +39,16 @@ const statusEl = document.querySelector('[data-status-loading]')
       if (date) {
         document.querySelector('[data-status-text]').textContent = text
         document.querySelector('[data-status-datetime]').textContent = ` ${date}`
+        // Only reveal the status line (dot included) once we actually have
+        // fresh content to show it for — otherwise leave it removed below.
+        statusEl.hidden = false
+        statusEl.removeAttribute('data-status-loading')
+        return
       }
     }
-    statusEl.removeAttribute('data-status-loading')
+    // No status text, or it's stale (relativeDate returned nothing): don't
+    // show an empty dot with no text next to it.
+    statusEl.remove()
   } catch (e) {
     statusEl.remove()
     console.warn(e)

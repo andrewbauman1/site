@@ -5,7 +5,7 @@ layout: default
 root: true
 has_open_heart: true
 ---
-
+<!--
 {% assign hour = site.time | date: "%H" | plus: 0 %}
 {% assign minutes = site.time | date: "%M" %}
 {% if hour == 1 %}
@@ -30,33 +30,35 @@ has_open_heart: true
   {% when "10" %} {% assign month = "octubre" %}
   {% when "11" %} {% assign month = "noviembre" %}
   {% when "12" %} {% assign month = "diciembre" %}
-{% endcase %}
+{% endcase %}-->
 
-<p>
+<p class="lede">
   Technical Project Manager que automatiza todo lo que no debería ser manual. Me manejo con Python, documentos de requisitos, y cartas de bares.
 </p>
-<p>
-  Afincado en Boston, Massachusetts<span class="time" data-timestamp-text=", (donde ahora {{ prefix }} {time})"></span>, criado en Nueva York, y a menudo en algún punto intermedio.
-<p>
+<!--<p class="lede">
+  Afincado en Boston, Massachusetts<span class="time" data-timestamp-text=", (donde ahora {{ prefix }} {time})"></span>, criado en Nueva York, y a menudo en algún punto intermedio.-->
+<p class="lede">
   A partir del {{ day }} de {{ month }}, montándome la infraestructura en casa, escribiendo scripts, y currándome mañanas más relajadas.
 </p>
 
-<nav aria-label="Profesión">
-  <a href="{% link _pages/testimonials.md %}">Testimonios</a><hr class="inline-hr">
-  <a href="https://www.linkedin.com/in/drewbauman/" target="_blank" rel="me">LinkedIn</a>
-</nav>
+<div class="nav-group">
+  <span class="nav-label">Get in touch</span>
+  <nav aria-label="Social" class="links contact">
+    <a href="https://www.linkedin.com/in/drewbauman/" target="_blank" rel="me">LinkedIn</a>
+    <a href="https://github.com/andrewbauman1" target="_blank" rel="me">GitHub</a>
+    <a href="https://www.pinterest.com/drewsiph_/" target="_blank" rel="me">Pinterest</a>
+    <a href="mailto:andrewbauman001@gmail.com">Email</a>
+  </nav>
+</div>
 
-<br>
-
-<nav aria-label="Contenido adicional">
-  <a href="{% link _pages/blogroll.md %}">Sigiendo</a><hr class="inline-hr">
-  <a href="{% link _pages/pet-projects.md %}">Proyectos Personales</a>
-</nav>
-<nav aria-label="Social">
-  <a href="https://github.com/andrewbauman1" target="_blank" rel="me">GitHub</a><hr class="inline-hr">
-  <a href="https://www.pinterest.com/drewsiph_/" target="_blank" rel="me">Pinterest</a><hr class="inline-hr">
-  <a href="mailto:andrewbauman001@gmail.com">Email</a>
-</nav>
+<div class="nav-group">
+  <span class="nav-label">Páginas</span>
+  <nav aria-label="Profession" class="links">
+    <a href="{% link _pages/testimonials.md %}">Testimonios</a>
+    <a href="{% link _pages/blogroll.md %}">Siguiendo</a>
+    <a href="{% link _pages/pet-projects.md %}">Proyectos Personales</a>
+  </nav>
+</div>
 
 <div class="lang">
   <a href="/" srclang="en-US">English</a><a href="/es-ES/" srclang="es-ES" aria-current="true">Español</a>
