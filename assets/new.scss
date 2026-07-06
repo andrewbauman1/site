@@ -287,6 +287,15 @@ body[data-page-type=""]:not(.post-body) header {
   padding-left: 2.5em;
 }
 
+/* .vertical-text is hidden below 768px, so main/header no longer need to
+   clear it — body's own 2em padding is enough. */
+@media (max-width: 768px) {
+  body[data-page-type=""]:not(.post-body) main,
+  body[data-page-type=""]:not(.post-body) header {
+    padding-left: 0;
+  }
+}
+
 section {
   margin: 3em 0;
 }
@@ -1214,7 +1223,7 @@ nav {
 @media (max-width: 768px) {
   .theme-toggle {
     top: 1em;
-    right: 1em;
+    right: 1.5em;
   }
 }
 
