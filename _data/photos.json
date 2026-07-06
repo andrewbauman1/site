@@ -239,5 +239,28 @@
       "https://imagedelivery.net/LQ_Z8HgbrQpAu3k88KR0Rg/78b3dbb0-a7f2-4bdb-a86b-5016854d7d00/thumbnail"
     ],
     "requireSignedURLs": false
+  },
+  {
+    "uploaded": "2026-07-06T01:10:57.410Z",
+    "id": "964ee125-5ffd-40b2-811b-b30a88146500",
+    "filename": "PXL_20260614_221337580.MP.jpg",
+    "meta": {
+      "ratio": 1.7730496453900708,
+      "orientation": "landscape",
+      "caption": "Play Bawl! ⚾️ | 📍 Fenway Park",
+      "alt": "A picture of Fenway Park. Sign reads \"Fenway Park, Home of the Boston Red Sox\" Gate C Entrance Ipswich Street, Lansdowne",
+      "featured": false,
+      "albums": [
+        "Boston",
+        "Life"
+      ],
+      "location": "Fenway Park, Boston, MA",
+      "datetime": "2026-06-14T22:03:00.000Z"
+    },
+    "variants": [
+      "https://imagedelivery.net/LQ_Z8HgbrQpAu3k88KR0Rg/964ee125-5ffd-40b2-811b-b30a88146500/public",
+      "https://imagedelivery.net/LQ_Z8HgbrQpAu3k88KR0Rg/964ee125-5ffd-40b2-811b-b30a88146500/thumbnail"
+    ],
+    "requireSignedURLs": false
   }
 ]
