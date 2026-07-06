@@ -274,6 +274,10 @@ body[data-page-type=""]:not(.post-body) main {
   overflow: visible;
   max-width: 70em;
   padding-left: 2.5em;
+  /* Override the shared header/main/footer margin:auto centering — on very
+     wide viewports auto-centering pushed main right of header (which stays
+     margin:0), breaking the logo/h1/lede alignment. Both must left-hug. */
+  margin: 0;
 }
 
 /* Match header to main's left-hugging layout so logo/h1/status line
