@@ -262,5 +262,29 @@
       "https://imagedelivery.net/LQ_Z8HgbrQpAu3k88KR0Rg/964ee125-5ffd-40b2-811b-b30a88146500/thumbnail"
     ],
     "requireSignedURLs": false
+  },
+  {
+    "uploaded": "2026-07-06T01:10:57.804Z",
+    "id": "0f53f117-c545-4784-ce5b-768777b66e00",
+    "filename": "PXL_20260614_150546953.jpg",
+    "meta": {
+      "ratio": 1.3333333333333333,
+      "orientation": "landscape",
+      "caption": "🐢 Not a pet, but a good friend of mine | 📍 NE Aquarium",
+      "alt": "A green sea turtle swimming in the tank of the New England Aquarium",
+      "featured": false,
+      "albums": [
+        "Pets",
+        "Life",
+        "Boston"
+      ],
+      "location": "New England Aquarium",
+      "datetime": "2026-06-14T15:15:00.000Z"
+    },
+    "variants": [
+      "https://imagedelivery.net/LQ_Z8HgbrQpAu3k88KR0Rg/0f53f117-c545-4784-ce5b-768777b66e00/public",
+      "https://imagedelivery.net/LQ_Z8HgbrQpAu3k88KR0Rg/0f53f117-c545-4784-ce5b-768777b66e00/thumbnail"
+    ],
+    "requireSignedURLs": false
   }
 ]
