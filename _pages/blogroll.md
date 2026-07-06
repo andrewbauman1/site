@@ -14,7 +14,16 @@ This page is frequently updated & not sponsored. Only websites that are being ac
 
 <!-- Assign the 'links' variable to a randomized list of blogroll entries -->
 {% assign links = site.data.blogroll | sort: "title" | sample: site.data.blogroll.size %}
+<ul class="notes blogroll-list">
 {%- for item in links %}
-<h2><a href="{{ item.url }}" target="_blank" rel="noopener noreferrer">{{ item.title }}</a> <code class="smol">({{ item.lang }})</code></h2>
+<li class="note">
+<div class="general-actions">
+<h2 class="text"><a href="{{ item.url }}" target="_blank" rel="noopener noreferrer">{{ item.title }}</a></h2>
+<code class="smol lang-pill">{{ item.lang }}</code>
+</div>
+<div class="note-content">
 <p>{{ item.description }}</p>
+</div>
+</li>
 {%- endfor %}
+</ul>
