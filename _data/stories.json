@@ -1675,5 +1675,22 @@
       "https://imagedelivery.net/LQ_Z8HgbrQpAu3k88KR0Rg/4e312ae6-10d4-4d33-fd85-4fa14f871400/public",
       "https://imagedelivery.net/LQ_Z8HgbrQpAu3k88KR0Rg/4e312ae6-10d4-4d33-fd85-4fa14f871400/thumbnail"
     ]
+  },
+  {
+    "uploaded": "2026-07-07T23:25:06.426Z",
+    "id": "64b8d8bb-e59e-4b9f-cbcc-972f85cd3100",
+    "filename": "1000013905.jpg",
+    "meta": {
+      "alt": "A photo of a friendly frozen yogurt mascot.",
+      "caption": "There's never a bad time for frozen yogurt 🍨",
+      "tags": [
+        "Life"
+      ]
+    },
+    "requireSignedURLs": false,
+    "variants": [
+      "https://imagedelivery.net/LQ_Z8HgbrQpAu3k88KR0Rg/64b8d8bb-e59e-4b9f-cbcc-972f85cd3100/public",
+      "https://imagedelivery.net/LQ_Z8HgbrQpAu3k88KR0Rg/64b8d8bb-e59e-4b9f-cbcc-972f85cd3100/thumbnail"
+    ]
   }
 ]
