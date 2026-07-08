@@ -1792,6 +1792,13 @@ body[data-page-type=""]:not(.post-body) .photos img:hover {
   padding: 0.35em 0.7em;
 }
 
+/* Space out repeated category headers on the blogroll page; .notes has no
+   bottom margin of its own, so without this the next heading sits flush
+   against the last card's bottom border. */
+.blogroll-category-head {
+  margin-top: 2.5em;
+}
+
 /* Recent posts list */
 body[data-page-type=""]:not(.post-body) .terminal .line {
   display: flex;

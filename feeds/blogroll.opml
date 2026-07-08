@@ -1,0 +1,24 @@
+---
+permalink: /blogroll.opml
+sitemap: false
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="2.0">
+  <head>
+    <title>Andrew's blogroll</title>
+    <dateCreated>{{ site.time | date_to_rfc822 }}</dateCreated>
+    <ownerName>Andrew Bauman</ownerName>
+    <ownerId>{{ site.url }}</ownerId>
+  </head>
+  <body>{% assign grouped = site.data.blogroll | group_by: "category" | sort: "name" %}{%- for group in grouped -%}
+      {%- assign items = group.items | where_exp: "item", "item.feed != nil" | sort: "title" -%}
+      {%- if items.size > 0 -%}
+    <outline text="{{ group.name | xml_escape }}" title="{{ group.name | xml_escape }}">
+      {%- for item in items -%}
+      <outline type="rss" text="{{ item.title | xml_escape }}" title="{{ item.title | xml_escape }}" xmlUrl="{{ item.feed }}" htmlUrl="{{ item.url }}" />
+      {%- endfor %}
+    </outline>
+      {%- endif -%}
+    {%- endfor %}
+  </body>
+</opml>

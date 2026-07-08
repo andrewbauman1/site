@@ -1,30 +1,105 @@
 - title: Anna's Archive
-  url: https://annas-archive.org/blog/
+  url: https://annas-archive.gl/blog/
+  feed: https://annas-archive.gl/blog/rss.xml
+  category: Tech & Preservation
   lang: en
   description: Writings related to piracy, digital preservation, and more.
   added_at: Mon, 10 Feb 2025 21:00:00 +05:00
-- title: Sarah M. Hoban
-  url: https://www.sarahmhoban.com/blog
-  lang: en
-  description: Writings related to Product Reviews, Project Management, and Career Advice.
-  added_at: Mon, 10 Feb 2025 21:22:00 +05:00
 - title: Drunken PM (Dave Prior)
   url: https://drunkenpm.blogspot.com/
+  feed: https://drunkenpm.blogspot.com/feeds/posts/default
+  category: Project Management
   lang: en
   description: Writings related to Product Reviews, Project Management, and Career Advice.
   added_at: Mon, 10 Feb 2025 21:22:00 +05:00
 - title: Michele Badie
   url: https://skillsrecharged.com/blog/
+  feed:
+  category: Project Management
   lang: en
   description: Project Management Resources from the perspective of a Mental Health Advocate.
   added_at: Mon, 10 Feb 2025 21:22:00 +05:00
 - title: Martin Adams
   url: https://meda.io/
+  feed: https://meda.io/rss/
+  category: Productivity & Knowledge Management
   lang: en
   description: Think pieces on notetaking and idea organization.
   added_at: Mon, 10 Feb 2025 21:22:00 +05:00
 - title: PMI - Voices on Project Management
   url: http://www.projectmanagement.com/blog/Voices-on-Project-Management/
+  feed:
+  category: Project Management
   lang: en
   description: Multiple Authors Best practices and mentoring to communication, project planning, and risk management.
   added_at: Mon, 10 Feb 2025 21:22:00 +05:00
+- title: Allstonia
+  url: https://allstonia.com/
+  feed: https://allstonia.com/feed
+  category: Boston & Local
+  lang: en
+  description: Neighbor-run news for Allston &mdash; rent, rats, small businesses, and everything in between.
+  added_at: Tue, 07 Jul 2026 10:00:00 -04:00
+- title: Universal Hub
+  url: https://www.universalhub.com/
+  feed: https://www.universalhub.com/rss.xml
+  category: Boston & Local
+  lang: en
+  description: All Boston, all the time. Neighborhood news, MBTA gripes, and 311 complaints of the day, run by Adam Gaffin.
+  added_at: Tue, 07 Jul 2026 10:00:00 -04:00
+- title: DHH
+  url: https://world.hey.com/dhh
+  feed: https://world.hey.com/dhh/feed.atom
+  category: Tech & Business
+  lang: en
+  description: Essays on software, business, and independence from the co-founder of Basecamp and creator of Ruby on Rails.
+  added_at: Tue, 07 Jul 2026 10:00:00 -04:00
+- title: TechHut
+  url: https://techhut.tv/
+  feed: https://techhut.tv/rss
+  category: Homelab & Self-hosting
+  lang: en
+  description: Homelab builds, self-hosted software, and open-source tooling walkthroughs.
+  added_at: Tue, 07 Jul 2026 10:00:00 -04:00
+- title: Roman Zipp
+  url: https://romanzipp.com/blog
+  feed: https://romanzipp.com/rss
+  category: Homelab & Self-hosting
+  lang: en
+  description: Homelab builds, self-hosting write-ups, and web development notes.
+  added_at: Tue, 07 Jul 2026 10:00:00 -04:00
+- title: Vintage Computing and Gaming
+  url: https://www.vintagecomputing.com/
+  feed: https://www.vintagecomputing.com/index.php/feed
+  category: Tech & Preservation
+  lang: en
+  description: Benj Edwards' long-running blog on retrocomputing history and preservation.
+  added_at: Tue, 07 Jul 2026 10:00:00 -04:00
+- title: Quantum Bits
+  url: https://www.quantum-bits.org/
+  feed: https://www.quantum-bits.org/?feed=rss2
+  category: Tech & Preservation
+  lang: en
+  description: Vintage computer restoration logs, including Apple II and other classic machines.
+  added_at: Tue, 07 Jul 2026 10:00:00 -04:00
+- title: RetroTech & Café
+  url: https://retrotechycafe.wordpress.com/
+  feed: https://retrotechycafe.wordpress.com/feed
+  category: Tech & Preservation
+  lang: es
+  description: Reflexiones personales sobre retro tecnología, restauración de máquinas y manuales antiguos.
+  added_at: Tue, 07 Jul 2026 10:00:00 -04:00
+- title: Commodore Mania
+  url: https://commodoremania.blogspot.com/
+  feed: https://commodoremania.blogspot.com/feeds/posts/default
+  category: Tech & Preservation
+  lang: es
+  description: Proyecto de preservación de manuales y documentación de ordenadores Commodore.
+  added_at: Tue, 07 Jul 2026 10:00:00 -04:00
+- title: Nelson Rodríguez-Peña
+  url: https://nelsonrp.com/
+  feed: https://nelsonrp.com/feed
+  category: Productivity & Knowledge Management
+  lang: es
+  description: Escritos sobre diseño de producto, liderazgo, y gestión del conocimiento personal.
+  added_at: Tue, 07 Jul 2026 10:00:00 -04:00
