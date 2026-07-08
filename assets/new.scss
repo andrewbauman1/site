@@ -187,17 +187,14 @@ a {
 }
 
 a[href^='http']:not([href^='https://drewsiph.dev/'], .hidden-link, :has(img)) {
-  padding-right: 0.5em;
+  padding-right: 0.7em;
 
   &:after {
-    content: '┓' / ', external';
+    content: ' \2197' / ', external';
     font-family: var(--sansserif);
-    font-size: 0.5em;
-    line-height: 0;
+    font-size: 0.7em;
     text-decoration: none;
-    position: absolute;
-    margin-top: calc(1rem - 1.7em);
-    line-height: 1em;
+    vertical-align: super;
   }
 }
 
@@ -1640,15 +1637,12 @@ nav.links a:hover {
 nav.links a[href^='http'] {
   padding-right: 1.1em;
 }
-/* Swap the sitewide "┓" external-link mark (tuned for inline prose) for a
-   plain arrow, since the small mark reads as a stray glyph inside a pill. */
+/* Same sitewide arrow mark, just sized and aligned for inline pill flow
+   instead of the small raised superscript used for arrows inside prose. */
 nav.links a[href^='http']::after {
-  content: ' \2197' / ', external';
   font-family: inherit;
   font-size: 1em;
-  line-height: inherit;
-  position: static;
-  margin-top: 0;
+  vertical-align: baseline;
 }
 nav.links.contact a {
   border-color: rgba(232, 160, 110, 0.25);

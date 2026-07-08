@@ -32,7 +32,7 @@ I welcome your feedback on the accessibility of **drewsiph.dev**. If you encount
 
 You can report accessibility issues by:
 - [Opening an issue on GitHub](https://github.com/andrewbauman1/site/issues/new).
-- Sending an email to hello[at]andrewbauman[dot]me.
+- Sending an email to andrewbauman001[at]gmail[dot]com.
 
 I aim to respond to feedback within **10 days** and will make every effort to address your concerns promptly.
 

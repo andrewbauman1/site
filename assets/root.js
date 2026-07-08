@@ -36,7 +36,7 @@ const statusEl = document.querySelector('[data-status-loading]')
     if (s.trim() !== '') {
       const [datetime, text] = s.split('\n')
       const date = relativeDate(new Date(datetime))
-      if (date) {
+      if (date && text && text.trim() !== '') {
         document.querySelector('[data-status-text]').textContent = text
         document.querySelector('[data-status-datetime]').textContent = ` ${date}`
         // Only reveal the status line (dot included) once we actually have

@@ -2,6 +2,7 @@
 layout: default
 title: Open Heart
 open_heart: true
+sitemap: false
 ---
 
 <script defer type="text/javascript">
