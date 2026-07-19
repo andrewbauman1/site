@@ -1,21 +1,17 @@
-<!doctype html>
-<html>
-  <head>
-    <meta content="width=device-width, initial-scale=1.0, user-scalable=no" name="viewport">
-    <meta content="text/html; charset=utf-8" http-equiv="content-type">
-    <meta content="http://drewsiph.dev/images/og.png" property="og:image">
-    <meta content="@drewsiph.dev" property="og:title">
-    <meta content="http:/drewsiph.dev" property="og:url">
-    <title>404</title>
-  </head>
-  <body>
-    <main>
-      <h1 class="h1">
-        404<span class="blink">|</span>
-      </h1>
-      <a href="/">&leftarrow;</a>
-    </main>
-    <link href="/assets/new.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Cousine&display=swap" rel="stylesheet">
-  </body>
-</html>
+---
+layout: default
+title: "404"
+type: notfound
+sitemap: false
+---
+
+<p class="lede">This page took a wrong turn and ended up here instead.</p>
+
+<p class="monospace smol not-found-line">GET <span id="not-found-path">this page</span> &rarr; 404<span class="blink" aria-hidden="true">_</span></p>
+
+<a href="/" class="styled-link">&leftarrow; Back home</a>
+
+<script>
+  var el = document.getElementById('not-found-path');
+  if (el && window.location.pathname) el.textContent = window.location.pathname;
+</script>

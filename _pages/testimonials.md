@@ -2,6 +2,7 @@
 layout: default
 title: Testimonials
 type: static
+description: What colleagues and collaborators have said about working with Andrew Bauman.
 ---
 
 <ul class="notes testimonials">

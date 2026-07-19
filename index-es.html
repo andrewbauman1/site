@@ -4,6 +4,7 @@ permalink: /es-ES/
 layout: default
 root: true
 has_open_heart: true
+description: Senior Project Manager que tiende puentes entre el negocio y la tecnología, compartiendo notas, fotos y proyectos.
 ---
 <!--
 {% assign hour = site.time | date: "%H" | plus: 0 %}
@@ -33,7 +34,7 @@ has_open_heart: true
 {% endcase %}-->
 
 <p class="lede">
-  Senior Project Manager que habla tanto de negocio como de desarrollo - y escribe el código para respaldarlo. Actualmente automatizando mi vida personal y haciéndome creer que eso es algo normal.
+  Senior Project Manager que tiende puentes entre el negocio y la tecnología, y escribe el código para respaldarlo. Actualmente automatizando mi vida personal y haciéndome creer que eso es algo normal.
 </p>
 <!--<p class="lede">
   Afincado en Boston, Massachusetts<span class="time" data-timestamp-text=", (donde ahora {{ prefix }} {time})"></span>, criado en Nueva York, y a menudo en algún punto intermedio.-->
@@ -44,6 +45,7 @@ has_open_heart: true
 <div class="nav-group">
   <span class="nav-label">Páginas</span>
   <nav aria-label="Profession" class="links">
+    <a href="{% link about.md %}">Sobre mí</a>
     <a href="{% link _pages/testimonials.md %}">Testimonios</a>
     <a href="{% link _pages/blogroll.md %}">Siguiendo</a>
     <a href="{% link _pages/pet-projects.md %}">Proyectos Personales</a>
@@ -64,6 +66,31 @@ has_open_heart: true
 <div class="lang">
   <a href="/" srclang="en-US">English</a><a href="/es-ES/" srclang="es-ES" aria-current="true">Español</a>
 </div>
+
+<section class="section notes-section">
+  <div class="section-head">
+    <h2>Notas sueltas</h2>
+    <a href="/notes" class="styled-link">Ver los recientes</a> <a href="/notes.xml" class="styled-link">RSS</a>
+  </div>
+  {% assign note = site.notes | last %}
+  <div class="note field-note" style="margin-top: 0.5em;">
+    <div class="general-actions">
+      <h2 class="text">
+        <a href="{{ note.url }}" class="monospace">{{ note.date | date: "%b %e, %Y" }}</a>
+      </h2>
+      <button type="button" class="share-button monospace" data-share-url="{{ note.url }}" hidden>Compartir</button>
+      <open-heart class="text-open-heart monospace" href="https://openheart.andrewbauman001.workers.dev/?id={{ note.url }}" emoji="❤️" aria-labelledby="like-prompt">
+        <span class="on">Me gusta ♥︎.</span><span class="off">¿Te gusta?</span>
+      </open-heart>
+    </div>
+    <div class="note-content" lang="{{ note.lang }}">{{ note.content | markdownify }}</div>
+    <div class="note-tags">
+      {% for tag in note.tags %}
+        <span class="note-tag" data-tag="{{ tag }}">{{ tag }}</span>
+      {% endfor %}
+    </div>
+  </div>
+</section>
 
 <section class="section">
   <div class="section-head">
@@ -99,31 +126,6 @@ has_open_heart: true
       <img src="{{ image_url }}" height="200" alt="{{ photo.meta.alt }}" loading="lazy" style="aspect-ratio: {{ photo.meta.ratio }};">
     </a>
   {% endfor %}
-  </div>
-</section>
-
-<section class="section notes-section">
-  <div class="section-head">
-    <h2>Notas sueltas</h2>
-    <a href="/notes" class="styled-link">Ver los recientes</a> <a href="/notes.xml" class="styled-link">RSS</a>
-  </div>
-  {% assign note = site.notes | last %}
-  <div class="note field-note" style="margin-top: 0.5em;">
-    <div class="general-actions">
-      <h2 class="text">
-        <a href="{{ note.url }}" class="monospace">{{ note.date | date: "%b %e, %Y" }}</a>
-      </h2>
-      <button type="button" class="share-button monospace" data-share-url="{{ note.url }}" hidden>Compartir</button>
-      <open-heart class="text-open-heart monospace" href="https://openheart.andrewbauman001.workers.dev/?id={{ note.url }}" emoji="❤️" aria-labelledby="like-prompt">
-        <span class="on">Me gusta ♥︎.</span><span class="off">¿Te gusta?</span>
-      </open-heart>
-    </div>
-    <div class="note-content" lang="{{ note.lang }}">{{ note.content | markdownify }}</div>
-    <div class="note-tags">
-      {% for tag in note.tags %}
-        <span class="note-tag" data-tag="{{ tag }}">{{ tag }}</span>
-      {% endfor %}
-    </div>
   </div>
 </section>
 

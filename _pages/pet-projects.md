@@ -2,6 +2,7 @@
 layout: default
 title: Pet Projects
 type: static
+description: A collection of personal projects and experiments Andrew Bauman has built over the years.
 ---
 
 A collection of personal projects and experiments I've built over the years. I hope to post about each of these topics in more detail soon!

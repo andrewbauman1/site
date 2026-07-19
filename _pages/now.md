@@ -2,6 +2,7 @@
 layout: default
 title: Now
 type: static
+description: A snapshot of what Andrew Bauman is focused on right now, updated regularly.
 ---
 
 A snapshot of what I'm focused on right now, not a portfolio. For finished/ongoing projects with more depth, see [Pet Projects]({% link _pages/pet-projects.md %}). Inspired by [Derek Sivers' /now page movement](https://nownownow.com/about).

@@ -2,6 +2,7 @@
 layout: default
 title: Blogroll
 type: static
+description: Sites and blogs Andrew Bauman actually reads, grouped by topic, with an OPML export for feed readers.
 ---
 
 <a href="/blogroll.xml">RSS</a> <a href="/blogroll.opml">OPML</a>
