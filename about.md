@@ -13,4 +13,5 @@ Outside of work, I cook a lot of Mediterranean food and bake, especially my fami
 
 Want to know more?
 
-Resume version: [LinkedIn](https://www.linkedin.com/in/drewbauman/). Current focus: [Now]({% link _pages/now.md %}).
+Resume version: [LinkedIn](https://www.linkedin.com/in/drewbauman/).  
+Current focus: [Now]({% link _pages/now.md %}).

@@ -288,17 +288,12 @@
       const themeToggle = document.getElementById('theme-toggle');
       const html = document.documentElement;
 
-      // Check for saved theme preference or default to system preference
+      // Check for saved theme preference; default to dark for first-time visitors
       const savedTheme = localStorage.getItem('theme');
-      const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const theme = savedTheme || 'dark';
 
-      if (savedTheme) {
-        html.setAttribute('data-theme', savedTheme);
-        themeToggle.setAttribute('aria-checked', savedTheme === 'dark');
-      } else {
-        html.setAttribute('data-theme', systemPrefersDark ? 'dark' : 'light');
-        themeToggle.setAttribute('aria-checked', systemPrefersDark);
-      }
+      html.setAttribute('data-theme', theme);
+      themeToggle.setAttribute('aria-checked', theme === 'dark');
 
       themeToggle.addEventListener('click', () => {
         const currentTheme = html.getAttribute('data-theme');
