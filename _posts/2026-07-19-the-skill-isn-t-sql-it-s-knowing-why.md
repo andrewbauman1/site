@@ -2,6 +2,7 @@
 layout: default
 date: 2026-07-19
 title: The Skill Isn't SQL. It's Knowing Why.
+feature: 1
 ---
 
 People hear "technical PM" and assume one of two things. A burned-out developer who drifted into project management, or the designated translator who nods along in standups and repeats things back in plain English for everyone else.
