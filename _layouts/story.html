@@ -6,6 +6,7 @@
     <link rel="alternate" type="application/rss+xml" href="/notes.xml">
     <link rel="icon" href="/assets/fav.svg" type="image/svg+xml" sizes="24x24">
     <link href="/assets/new.css" rel="stylesheet" type="text/css">
+    <title>{{ page.title }} - {{ site.title }}</title>
     <meta content="{{ site.url }}{{ page.url }}" property="og:url">
     <meta content="{{ page.content | strip_html | strip_newlines | truncate: 120 }}" name="description">
     <meta content="{{ page.image }}" property="og:image">
@@ -15,27 +16,70 @@
     <link href="https://fonts.googleapis.com/css2?family=Readex+Pro&display=swap" rel="stylesheet">
   </head>
   <body class="col-{{ page.collection }}" data-page-type="{{ page.type }}">
-    <header class="story-header smol">
-      <div class="story-meta">
-        <a href="/" aria-label="Home">&leftarrow;</a>
-        <h1 class="normal-heading">
-          {{ page.title }}, {{ page.date | date: "%Y/%m/%d %H:%M" }}
-        </h1>
-        <open-heart class="text-open-heart monospace" href="https://openheart.andrewbauman001.workers.dev/?id={{ page.url }}" emoji="❤️" aria-labelledby="like-prompt">
-          (<span class="on">Liked ♥︎.</span><span class="off">Like?</span>)
+    <div class="story-stage">
+     <div class="story-card">
+      <div class="story-identity">
+        <img src="/assets/logo.svg" alt="" class="story-avatar">
+        <div class="story-identity-text">
+          <span class="story-name">Andrew Bauman</span>
+          <span class="story-time">{{ page.date | date: "%b %e, %Y" }}</span>
+        </div>
+      </div>
+      <div class="story-top-right">
+        {% if page.video %}<button type="button" class="story-mute" aria-label="Toggle sound" aria-pressed="true">&#128263;</button>{% endif %}
+        <a href="/" class="story-close" aria-label="Close">&times;</a>
+      </div>
+
+      {% if page.video %}
+        <video id="story-video" class="story-media" src="{{ page.video }}" poster='{{ page.image }}' aria-describedby="description" muted autoplay playsinline><!-- tracks --></video>
+        <script src="https://cdn.jsdelivr.net/npm/hls.js@latest" onerror="console.error('Failed to load hls.js from CDN')"></script>
+        <script>
+          (function () {
+            var video = document.getElementById('story-video');
+            var videoSrc = video.getAttribute('src');
+            var muteButton = document.querySelector('.story-mute');
+
+            video.addEventListener('click', function () {
+              if (video.paused) { video.play(); } else { video.pause(); }
+            });
+            muteButton.addEventListener('click', function () {
+              video.muted = !video.muted;
+              muteButton.textContent = video.muted ? '\u{1F507}' : '\u{1F50A}';
+              muteButton.setAttribute('aria-pressed', String(video.muted));
+            });
+
+            if (!videoSrc || !videoSrc.includes('.m3u8')) return;
+
+            if (video.canPlayType('application/vnd.apple.mpegurl')) {
+              // Native HLS support (Safari) - no need for hls.js.
+              return;
+            }
+
+            if (window.Hls && Hls.isSupported()) {
+              var hls = new Hls();
+              hls.loadSource(videoSrc);
+              hls.attachMedia(video);
+              video.removeAttribute('src');
+              hls.on(Hls.Events.ERROR, function (event, data) {
+                console.error('HLS.js error:', data.type, data.details, data);
+              });
+            } else {
+              console.error('hls.js unavailable and browser lacks native HLS support; video cannot play.');
+            }
+          })();
+        </script>
+      {% else %}
+        <img src="{{ page.image }}" alt="{{ page.alt }}" class="story-media">
+      {% endif %}
+
+      <div class="story-overlay-bottom">
+        <div id="description" class="story-caption">{{ page.caption }}</div>
+        <open-heart class="story-like" href="https://openheart.andrewbauman001.workers.dev/?id={{ page.url }}" emoji="&#10084;&#65039;" aria-labelledby="like-prompt">
+          <span class="on">&#9829;</span><span class="off">&#9825;</span>
         </open-heart>
       </div>
-      <div id="description">
-        {{ page.caption }}
-      </div>
-    </header>
-    <main>
-      {% if page.video %}
-        <video height="100%" src="{{ page.video }}" poster='{{ page.image }}' aria-describedby="description" muted autoplay controls playsinline><!-- tracks --></video>
-      {% else %}
-        <img src="{{ page.image }}" alt="{{ page.alt }}" class="story-image">
-      {% endif %}
-    </main>
-    <script defer type="module" src="https://unpkg.com/open-heart-element@latest"></script> -->
+     </div>
+    </div>
+    <script defer type="module" src="https://unpkg.com/open-heart-element@latest"></script>
   </body>
 </html>

@@ -1,7 +1,7 @@
 ---
 layout: default
 type: photos
-has_open_heart: false
+has_open_heart: true
 title: Album
 sitemap: false
 ---
@@ -144,21 +144,6 @@ function addLayoutControls() {
       photosContainer.appendChild(figure);
     });
 
-    // Initialize open-heart elements if the script is loaded
-    if (typeof customElements !== 'undefined') {
-      customElements.whenDefined('open-heart').then(() => {
-        const observer = new IntersectionObserver((entries, observer) => {
-          entries.forEach(async (entry) => {
-            if (entry.target.tagName === 'OPEN-HEART' && entry.isIntersecting) {
-              entry.target.getCount();
-              observer.unobserve(entry.target);
-            }
-          });
-        });
-
-        document.querySelectorAll('open-heart').forEach(oh => observer.observe(oh));
-      });
-    }
   } catch (error) {
     console.error('Error loading photos:', error);
     document.getElementById('album-content').innerHTML = `
@@ -196,5 +181,3 @@ document.addEventListener('keydown', function(event) {
   }
 });
 </script>
-
-<script type="module" src="https://unpkg.com/open-heart-element@latest"></script>
