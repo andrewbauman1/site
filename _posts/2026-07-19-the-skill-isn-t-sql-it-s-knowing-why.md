@@ -1,7 +1,7 @@
 ---
-layout: default
+title: Bringing Back the Visit Counter
 date: 2026-07-18
-title: The Skill Isn't SQL. It's Knowing Why.
+layout: default
 feature: 1
 ---
 
