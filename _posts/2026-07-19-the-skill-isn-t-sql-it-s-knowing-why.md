@@ -1,6 +1,6 @@
 ---
 layout: default
-date: 2026-07-19
+date: 2026-07-18
 title: The Skill Isn't SQL. It's Knowing Why.
 feature: 1
 ---
