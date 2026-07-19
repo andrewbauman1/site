@@ -39,7 +39,13 @@ jobs:
           node-version: 17.7
 
       - name: Run script
-        run: node .github/workflows/scripts/notes.js "${{ inputs.datetime }}" "${{ inputs.tags }}" "${{ inputs.lang }}" "${{ inputs.location }}" "${{ inputs.content }}"
+        env:
+          NOTE_DATETIME: ${{ inputs.datetime }}
+          NOTE_TAGS: ${{ inputs.tags }}
+          NOTE_LANG: ${{ inputs.lang }}
+          NOTE_LOCATION: ${{ inputs.location }}
+          NOTE_CONTENT: ${{ inputs.content }}
+        run: node .github/workflows/scripts/notes.js "$NOTE_DATETIME" "$NOTE_TAGS" "$NOTE_LANG" "$NOTE_LOCATION" "$NOTE_CONTENT"
 
       - name: Push changes
         env:

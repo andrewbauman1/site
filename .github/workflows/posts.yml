@@ -40,7 +40,13 @@ jobs:
           node-version: 17.7
 
       - name: Run script
-        run: node .github/workflows/scripts/posts.js "${{ inputs.date }}" "${{ inputs.title }}" "${{ inputs.layout }}" "${{ inputs.feature }}" "${{ inputs.content }}"
+        env:
+          POST_DATE: ${{ inputs.date }}
+          POST_TITLE: ${{ inputs.title }}
+          POST_LAYOUT: ${{ inputs.layout }}
+          POST_FEATURE: ${{ inputs.feature }}
+          POST_CONTENT: ${{ inputs.content }}
+        run: node .github/workflows/scripts/posts.js "$POST_DATE" "$POST_TITLE" "$POST_LAYOUT" "$POST_FEATURE" "$POST_CONTENT"
 
       - name: Push changes
         env:
