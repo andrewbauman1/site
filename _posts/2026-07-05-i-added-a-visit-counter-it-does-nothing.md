@@ -1,7 +1,7 @@
 ---
-layout: default
+title: Bringing Back the Visit Counter
 date: 2026-07-05
-title: I Added a Visit Counter. It Does Nothing.
+layout: default
 feature: 1
 ---
 
@@ -19,4 +19,3 @@ The counter brings me back to that era. Flash games, AIM, early Skype calls, Win
 A real analytics dashboard would tell me more. Where you came from, what you clicked, how long you stayed. This counter doesn't know any of that and doesn't care. It just noticed you showed up.
 
 So welcome. No matter whether you're visitor 000003, 99999, or somewhere in between, I'm glad you're here.
-
