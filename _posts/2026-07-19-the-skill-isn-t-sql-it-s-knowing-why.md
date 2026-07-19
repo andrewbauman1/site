@@ -1,5 +1,5 @@
 ---
-title: The Query Is the Easy Part.
+title: The Query Is the Easy Part
 date: 2026-07-18
 layout: default
 feature: 1
