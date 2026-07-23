@@ -19,4 +19,6 @@ Skip that step and implementation work very quickly turns into a game of telepho
 
 I'm not going to tell you every PM should know how to write Python fluently. That's not the point I'm trying to make.
 
-The point is what the skill protects. Engineering time doesn't get spent building the wrong thing. Clients get a straight answer instead of a few rounds of "let me check and get back to you." It's not a line for a resume. It's just fewer places for a project to quietly go sideways.
+It's the same instinct that matters now with AI. A generated summary or a drafted report can sound completely confident and still be wrong in a way that's easy to miss if you don't know how to check it. AI is a fantastic tool. It's also very good at sounding sure of itself and hallucinates often. Knowing enough to catch the difference, to tell a real answer from a plausible-sounding one, is becoming as much a part of the job as reading a schema ever was.
+
+The point is what the skill protects. Engineering time doesn't get spent building the wrong thing. Clients get a straight answer instead of a few rounds of "let me check and get back to you." That's true whether the source of the confusion is a person or an AI model. Either way, someone has to be the one who checks.

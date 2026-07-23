@@ -163,3 +163,5 @@ User-agent: YiyanBot
 User-agent: YouBot
 User-agent: ZanistaBot
 Disallow: /
+
+Sitemap: https://drewsiph.dev/sitemap.xml
