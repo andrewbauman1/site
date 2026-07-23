@@ -82,8 +82,7 @@
       "image": "{{ site.url }}/assets/logo.png",
       "sameAs": [
         "https://www.linkedin.com/in/drewbauman/",
-        "https://github.com/andrewbauman1",
-        "https://www.pinterest.com/drewsiph_/"
+        "https://github.com/andrewbauman1"
       ]
     }
     </script>
@@ -172,6 +171,9 @@
             </open-heart>
           </div>
         </div>
+      {% endif %}
+      {% if page.collection == "posts" %}
+        <p class="smol desc post-disclaimer">Views expressed here are my own and don't reflect those of any employer, past, present, or future.</p>
       {% endif %}
     </main>
     <footer>
